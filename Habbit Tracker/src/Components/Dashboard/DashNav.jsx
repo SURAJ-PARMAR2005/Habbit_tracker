@@ -25,7 +25,7 @@ const DashNav = () => {
 
 
   return (
-    <div className='flex flex-col items-start'>
+    <div className='flex flex-col items-start'>``
     <div className='flex items-center gap-[20vh]'>
         <div className='flex gap-3 justify-center items-center mt-3 ml-7'>
            <span>👤</span>
