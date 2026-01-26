@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
 
-const DashNav = () => {
+const DashNav = ({level}) => {
 
   const [now, setNow] = useState(new Date());
 
@@ -31,7 +31,7 @@ const DashNav = () => {
            <span>👤</span>
             <div className='flex flex-col'>
                 <h2 className='uppercase text-[#21D8F8] text-sm font-semibold tracking-wider' style={{fontFamily:'Orbitron'}} >Awakened Hunter</h2>
-                <h1 className='text-[#E8E6E3] size-3.5 whitespace-nowrap font-bold' style={{fontFamily:'Orbitron'}} >LEVEL 1</h1>
+                <h1 className='text-[#E8E6E3] size-3.5 whitespace-nowrap font-bold' style={{fontFamily:'Orbitron'}} >LEVEL {level}</h1>
             </div>
         </div>
         <div className='flex flex-col gap-2.5 mt-[10vh]'>

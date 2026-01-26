@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+const DashHero = ({completedTask,xp,setLevel}) => {
+  const Progress  = Math.min((xp/1000)*100,100);
+  // useEffect(() => {
+  //   if (xp >= 1000) {
+  //         setLevel(prev => prev + Math.floor(xp / 1000));
+  //       }
+  // },[xp,setLevel])
 
-const DashHero = () => {
   return (
     <div className=' min-w-screen flex gap-6  flex-col  p-6  mt-6'>
         <div className='flex gap-6'>
@@ -9,7 +15,7 @@ const DashHero = () => {
       <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 rounded-xl'>
         <h1 className='text-[#22E2FF] size-7 font-extrabold whitespace-nowrap'>EXPERIENCE POINTS</h1>
 
-        <p className='font-extrabold text-white text-2xl' >0/1,000</p>
+        <p className='font-extrabold text-white text-2xl' >{xp}/1,000</p>
         <p className='text-[#22E2FF] size-1  whitespace-nowrap'>Points Until Level Up</p>
 
       </div>
@@ -19,7 +25,7 @@ const DashHero = () => {
        <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 rounded-xl'>
          <h1 className='text-[#38FFC1] size-7 font-extrabold whitespace-nowrap'>DAILY PROGRESS</h1>
 
-        <p className='font-extrabold text-white text-2xl' >0/3</p>
+        <p className='font-extrabold text-white text-2xl' >{completedTask}/3</p>
         <p className='text-[#38FFC1] size-1 whitespace-nowrap'>Daily Complete Quests</p>
       </div>
 
@@ -59,13 +65,13 @@ const DashHero = () => {
     <div className='flex flex-col h-[20vh] w-full items-center gap-3 rounded-xl border border-blue-500/30 justify-evenly p-3'>
         <div className='flex w-full  justify-between'>
             <h1 className='text-[#22E2FF] font-extrabold'>LEVEL 1 PROGRESS</h1>
-            <h2 className='text-[#22E2FF] font-extrabold'>0/1000 XP</h2>
+            <h2 className='text-[#22E2FF] font-extrabold'>{xp}/1000 XP</h2>
         </div>
 
         {/* progress bar */}
 
-        <div className='h-3 mx-5 w-full bg-gray-700 rounded-full'>
-
+        <div className='h-3 mx-5 w-full bg-gray-700 rounded-full overflow-hidden'>
+          <div className='bg-[#22E2FF] h-full rounded-full transition-all duration-500' style={{width: `${Progress}%`}}></div>
         </div>
 
     </div>

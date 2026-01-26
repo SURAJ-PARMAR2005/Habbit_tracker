@@ -2,8 +2,24 @@ import React from 'react'
 import { Dumbbell } from "lucide-react";
 import { Book } from 'lucide-react';
 import { Heart } from 'lucide-react';
-const DashQuest = () => {
+import { useState } from 'react';
+const DashQuest = ({onTaskComplete}) => {
+    const [goal,setGoal] = useState(2);
+    const [mala,setMala] = useState(2);
+    const [physical,setPhysical] = useState(false);
+    const [Knowledge,setknowledge] = useState(false);
+    const [Spiritual,SetSpritual] = useState(false);
+    // const [completeTask,setCompletTask] = useState(0);
+    // const [xp,setXp] = useState(0);
+
+    // const completedTask = (xpgain) => {
+    //     setCompletTask((prev) => prev + 1);
+    //     setXp((prev) => prev + xpgain);
+    // }
+    
+
   return (
+
     <div className='flex flex-col gap-6 text-white pl-6'>
         {/* heading */}
         <div className='flex gap-2'>
@@ -24,9 +40,19 @@ const DashQuest = () => {
                         <div><h1>Physical Training</h1>
                         <h2 className='text-[#B4C1D3]'>(Strength)</h2></div>
                     </div>
-                    <input className='size-6 accent-gray-600' type="checkbox" />
+                    <input className='size-6 accent-gray-600' type="checkbox" onChange={(e) =>{ 
+                        setPhysical(e.target.checked);
+                        // completedTask(200);
+                         if (!physical && e.target.checked) {
+                        // setPhysical(true);
+                        onTaskComplete(200);
+                        }
+                    }}  />
                 </div>
-                <h1 className='p-3 font-extrabold text-xl text-[#AFA89D]'>INCOMPLETE</h1>
+                <h1  className={`p-3 font-extrabold text-xl  transition-all duration-300 ${physical?"text-[#38FFB7]":"text-[#AFA89D]"}`}>{physical?"COMPLETED":"INCOMPLETE"}</h1>
+                {physical && (<div className='h-4 w-full items-center p-2 '>
+                    <p className='text-[#38FFB7] bg-[#162622]'>+2 Strength, +100 XP</p>
+                </div>)}
             </div>
            <div className='physical-training flex flex-col border border-green-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start'>
                 {/* card1 */}
@@ -36,13 +62,40 @@ const DashQuest = () => {
                         <div><h1>Knowledge Acquisition</h1>
                         <h2 className='text-[#B4C1D3]'>(Intelligence)</h2></div>
                     </div>
-                    <input className='size-6 accent-gray-600' type="checkbox" />
+                    <input className='size-6 accent-gray-600' type="checkbox" onChange={(e) => {
+                        setknowledge(e.target.checked);
+                        // completedTask({goal});
+                        if (!Knowledge && e.target.checked) {
+                        // setknowledge(true);
+                        onTaskComplete(goal * 100);
+                         }   
+                    }} />
                 </div>
-                 <div className='flex gap-1.5'>
+                 <div className='flex gap-2 items-center '>
                         <h2 className='text-[#22E2FF]' >TARGET HOURS:</h2>
-                        <input type="range" name="" id="" />
+                        <select defaultValue="2" className='h-9 w-25 border border-b-gray-600/30 bg-[#0F172A] px-3 pr-8 cursor-pointer border-blue-500/30 rounded-[10px]' onChange={(e) => {
+                            setGoal(e.target.value);
+                            // completedTask({mala});
+                         
+                        } } >
+                            <option value="2">2h</option>
+                            <option value="3">3h</option>
+                            <option value="4">4h</option>
+                            <option value="5">5h</option>
+                            <option value="6">6h</option>
+                            <option value="7">7h</option>
+                            <option value="8">8h</option>
+                            <option value="9">9h</option>
+                            <option value="10">10h</option>
+                        </select>
                 </div>
-                <h1 className='p-3 font-extrabold text-xl text-[#AFA89D]'>INCOMPLETE</h1>
+                 <h1  className={`p-3 font-extrabold text-xl  transition-all duration-300 ${Knowledge?"text-[#38FFB7]":"text-[#AFA89D]"}`}>{Knowledge?"COMPLETED":"INCOMPLETE"}</h1>
+                 {Knowledge && (
+                   <div className='h-4 w-full items-center p-2 '>
+                    <p className='text-[#38FFB7] bg-[#162622]'>{goal} Knowledge, +{goal}00 XP</p>
+                </div>
+                 )}
+                <p className='text-[#22E2FF] ' >Goal {goal} hours</p>
             </div>
             <div className='physical-training flex flex-col border border-purple-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start'>
                 {/* card1 */}
@@ -54,9 +107,41 @@ const DashQuest = () => {
                         <div><h1>Spiritual Practice</h1>
                         <h2 className='text-[#B4C1D3]'>(Wisdom)</h2></div>
                     </div>
-                    <input className='size-6 accent-gray-600' type="checkbox" />
+                    <input className='size-6 accent-gray-600' type="checkbox" onChange={(e) => {
+                        SetSpritual(e.target.checked)
+                            if (!Spiritual && e.target.checked) {
+                                // SetSpritual(true);
+                                onTaskComplete(mala * 100);
+                            }
+                        }} />
                 </div>
-                <h1 className='p-3 font-extrabold text-xl text-[#AFA89D]'>INCOMPLETE</h1>
+                <div className='flex gap-2 items-center '>
+                        <h2 className='text-[#22E2FF] whitespace-nowrap' >TARGET MALA:</h2>
+                        <select defaultValue="2" className='h-9 w-full border border-b-gray-600/30 bg-[#0F172A] px-3 pr-8 cursor-pointer border-blue-500/30 rounded-[10px] ' onChange={(e) => setMala(e.target.value) } >
+                            <option value="2">2 mala</option>
+                            <option value="3">3 mala</option>
+                            <option value="4">4 mala</option>
+                            <option value="5">5 mala</option>
+                            <option value="6">6 mala</option>
+                            <option value="7">8 mala</option>
+                            <option value="8">9 mala</option>
+                            <option value="9">3 mala</option>
+                            <option value="10">10 mala</option>
+                            <option value="11">11 mala</option>
+                            <option value="12">12 mala</option>
+                            <option value="13">13 mala</option>
+                            <option value="14">14 mala</option>
+                            <option value="15">15 mala</option>
+                            <option value="16">16 mala</option>
+                        </select>
+                </div>
+                 <h1  className={`p-3 font-extrabold text-xl  transition-all duration-300 ${Spiritual?"text-[#38FFB7]":"text-[#AFA89D]"}`}>{Spiritual?"COMPLETED":"INCOMPLETE"}</h1>
+                 {Spiritual && (
+                   <div className='h-4 w-full items-center p-2 '>
+                    <p className='text-[#38FFB7] bg-[#162622]'>{mala} Spiritual, +{mala}00 XP</p>
+                </div>
+                 )}
+                <p className='text-[#22E2FF] '>Goal {mala} hours</p>
             </div>
 
         </div>
