@@ -72,13 +72,13 @@ const DashQuest = ({updateProgress}) => {
                     </div>
                     <input className='size-6 accent-gray-600' type="checkbox" onChange={(e) => {
                         setknowledge(e.target.checked);  
-                        // if(Knowledge){
-                        //     updateProgress({
-                        //     xpDelta: -(goal * 100),
-                        //     taskDelta: -1,
-                        //     intelligenceDelta: -goal,
-                        // })
-                        // else '
+                        if(Knowledge){
+                            updateProgress({
+                            xpDelta: -(goal * 100),
+                            taskDelta: -1,
+                            intelligenceDelta: -goal,
+                        })}
+                        else
                          updateProgress({
                         xpDelta: goal * 100,
                         taskDelta: 1,
@@ -125,15 +125,13 @@ const DashQuest = ({updateProgress}) => {
                     </div>
                     <input className='size-6 accent-gray-600' type="checkbox" onChange={(e) => {
                         SetSpritual(e.target.checked);
-                        // if(!Spiritual)handleWisdom(2);
-                        // else handleWisdom(-2);
-                        //     if (!Spiritual && e.target.checked) {
-                        //         // SetSpritual(true);
-                        //         onTaskComplete(mala * 100,!Spiritual);
-                        //     }
-                        //     else{
-                        //         onTaskComplete(-(mala*100));
-                        //     }
+                       if(Spiritual){
+                            updateProgress({
+                            xpDelta: -(mala * 100),
+                            taskDelta: -1,
+                            intelligenceDelta: -mala,
+                        })}
+                        else
                         updateProgress({
                         xpDelta: mala * 100,
                         taskDelta: 1,
