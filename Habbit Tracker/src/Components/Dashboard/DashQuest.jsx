@@ -3,7 +3,7 @@ import { Dumbbell } from "lucide-react";
 import { Book } from 'lucide-react';
 import { Heart } from 'lucide-react';
 import { useState } from 'react';
-const DashQuest = ({onTaskComplete}) => {
+const DashQuest = ({updateProgress}) => {
     const [goal,setGoal] = useState(2);
     const [mala,setMala] = useState(2);
     const [physical,setPhysical] = useState(false);
@@ -42,11 +42,19 @@ const DashQuest = ({onTaskComplete}) => {
                     </div>
                     <input className='size-6 accent-gray-600' type="checkbox" onChange={(e) =>{ 
                         setPhysical(e.target.checked);
-                        // completedTask(200);
-                         if (!physical && e.target.checked) {
-                        // setPhysical(true);
-                        onTaskComplete(200);
+                        if(physical){
+                            updateProgress({
+                            xpDelta: -200,
+                            taskDelta: -1,
+                            strengthDelta: -2,
+                        })
                         }
+                        else updateProgress({
+                            xpDelta: 200,
+                            taskDelta: 1,
+                            strengthDelta: 2,
+                        });
+
                     }}  />
                 </div>
                 <h1  className={`p-3 font-extrabold text-xl  transition-all duration-300 ${physical?"text-[#38FFB7]":"text-[#AFA89D]"}`}>{physical?"COMPLETED":"INCOMPLETE"}</h1>
@@ -63,12 +71,20 @@ const DashQuest = ({onTaskComplete}) => {
                         <h2 className='text-[#B4C1D3]'>(Intelligence)</h2></div>
                     </div>
                     <input className='size-6 accent-gray-600' type="checkbox" onChange={(e) => {
-                        setknowledge(e.target.checked);
-                        // completedTask({goal});
-                        if (!Knowledge && e.target.checked) {
-                        // setknowledge(true);
-                        onTaskComplete(goal * 100);
-                         }   
+                        setknowledge(e.target.checked);  
+                        // if(Knowledge){
+                        //     updateProgress({
+                        //     xpDelta: -(goal * 100),
+                        //     taskDelta: -1,
+                        //     intelligenceDelta: -goal,
+                        // })
+                        // else '
+                         updateProgress({
+                        xpDelta: goal * 100,
+                        taskDelta: 1,
+                        intelligenceDelta: goal,
+                        });
+
                     }} />
                 </div>
                  <div className='flex gap-2 items-center '>
@@ -108,11 +124,21 @@ const DashQuest = ({onTaskComplete}) => {
                         <h2 className='text-[#B4C1D3]'>(Wisdom)</h2></div>
                     </div>
                     <input className='size-6 accent-gray-600' type="checkbox" onChange={(e) => {
-                        SetSpritual(e.target.checked)
-                            if (!Spiritual && e.target.checked) {
-                                // SetSpritual(true);
-                                onTaskComplete(mala * 100);
-                            }
+                        SetSpritual(e.target.checked);
+                        // if(!Spiritual)handleWisdom(2);
+                        // else handleWisdom(-2);
+                        //     if (!Spiritual && e.target.checked) {
+                        //         // SetSpritual(true);
+                        //         onTaskComplete(mala * 100,!Spiritual);
+                        //     }
+                        //     else{
+                        //         onTaskComplete(-(mala*100));
+                        //     }
+                        updateProgress({
+                        xpDelta: mala * 100,
+                        taskDelta: 1,
+                        wisdomDelta: mala,
+                        });
                         }} />
                 </div>
                 <div className='flex gap-2 items-center '>
@@ -123,9 +149,9 @@ const DashQuest = ({onTaskComplete}) => {
                             <option value="4">4 mala</option>
                             <option value="5">5 mala</option>
                             <option value="6">6 mala</option>
-                            <option value="7">8 mala</option>
-                            <option value="8">9 mala</option>
-                            <option value="9">3 mala</option>
+                            <option value="7">7 mala</option>
+                            <option value="8">8 mala</option>
+                            <option value="9">9 mala</option>
                             <option value="10">10 mala</option>
                             <option value="11">11 mala</option>
                             <option value="12">12 mala</option>

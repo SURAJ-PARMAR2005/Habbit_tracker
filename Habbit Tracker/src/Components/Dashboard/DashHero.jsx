@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-const DashHero = ({completedTask,xp,setLevel}) => {
+import React from 'react'
+const DashHero = ({completedTask,xp,strength,wisdom,intelligence}) => {
   const Progress  = Math.min((xp/1000)*100,100);
   // useEffect(() => {
   //   if (xp >= 1000) {
@@ -35,15 +35,15 @@ const DashHero = ({completedTask,xp,setLevel}) => {
         <div className='flex flex-col gap-3'>
             <div className='flex items-center justify-between mb-1' >
             <h2 className='text-[#B9CAD9] size-1'>Strength</h2>
-            <p className='text-[#FF6063] size-1'>0</p>
+            <p className='text-[#FF6063] size-1'>{strength}</p>
          </div>
          <div className='flex items-center justify-between mb-1'>
             <h2 className='text-[#B9CAD9] size-1'>Wisdom</h2>
-            <p className='text-[#BD6FFF] size-1'>0</p>
+            <p className='text-[#BD6FFF] size-1'>{wisdom}</p>
          </div>
          <div className='flex items-center justify-between mb-4'>
             <h2 className='text-[#B9CAD9] size-1'>Intelligence</h2>
-            <p className='text-[#31FA96] size-1'>10</p>
+            <p className='text-[#31FA96] size-1'>{intelligence}</p>
          </div>
         </div>
 
