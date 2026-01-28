@@ -37,7 +37,7 @@ const Dashboard = () => {
     setXp((prevXp) => {
       const totalXp = prevXp + xpDelta;
 
-      if (totalXp >= 1000) {
+      if (totalXp > 1000) {
         const levelUps = Math.floor(totalXp / 1000);
         setLevel((prev) => prev + levelUps);
         return totalXp % 1000;
@@ -46,9 +46,10 @@ const Dashboard = () => {
       return Math.max(totalXp, 0);
     });
   };
+  console.log(level);
 
   return (
-    <div className="bg-[#181A1B] min-h-screen min-w-screen overflow-hidden">
+    <div className="bg-[#181A1B] min-h-screen min-w-screen overflow-x-hidden ">
       <DashNav level={level} />
       <DashHero
         completedTask={completedTask}

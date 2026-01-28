@@ -1,6 +1,13 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { X } from 'lucide-react';
 const DashFooter = ({flag}) => {
+
+  const [count,setCount] = useState(0);
+  const [study,setStudy] = useState(false);
+  const [junk,setJunk] = useState(false);
+  const [gym,setGym] = useState(false);
+  const[mala,setMala] = useState(false);
+
   return (
     <div className='mt-3 mx-4 flex flex-col gap-6 p-3 '>
       <div className='flex flex-col gap-4 w-full'>
@@ -14,26 +21,72 @@ const DashFooter = ({flag}) => {
        {flag && ( <div className='h-28  border border-green-500/30 rounded-xl flex flex-col justify-between gap-4 p-6'>
           <h1 className='text-[#38FFC1] font-bold'>DAILY QUESTS COMPLETED! UNLOCK EXTRA TASKS FOR BONUS XP AND STATS.</h1>
           <div className='m-2 flex gap-2 justify-items-start '>
-            <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl '>
+            <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl   '   onClick={() => {setCount(prev => prev+1);
+            setStudy(true);
+            }
+          }  >
               <i className='text-2xl text-white'>+</i>
               <h2 className='text-white font-bold'>+1 Hour Study</h2>
             </div>
-              <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl '>
+              <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
+              setMala(true);
+              }
+              } >
               <i className='text-2xl text-white'>+</i>
-              <h2 className='text-white font-bold'>+1 Hour Study</h2>
+              <h2 className='text-white font-bold'>+1 Mala</h2>
             </div> 
-             <div className='flex gap-2  items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl '>
+             <div className='flex gap-2  items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
+              setGym(true);
+             }} >
               <i className='text-2xl text-white'>+</i>
-              <h2 className='text-white font-bold'>+1 Hour Study</h2>
-            </div>  <div className='flex gap-2 items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl '>
+              <h2 className='text-white font-bold'>+1 Gym/Exercise</h2>
+            </div>  <div className='flex gap-2 items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
+              setJunk(true);
+            }} >
               <i className='text-2xl text-white'>+</i>
-              <h2 className='text-white font-bold'>+1 Hour Study</h2>
+              <h2 className='text-white font-bold'>+1 No Junk Food</h2>
             </div>
           </div>
         </div>)}
       </div>
-       {flag &&  <div className='h-20 mx-3.5 p-3 rounded-xl border border-blue-500/30 flex flex-col   '>
+       {count &&  <div className='h-20  p-3 rounded-xl border border-blue-500/30 flex flex-col  justify-between '>
             <h1 className='text-[#22E2FF]  '>TODAY'S EXTRA TASKS:</h1>
+          <div className='flex gap-2 m-3'>
+            {study &&  <div className='flex items-center text-white'>
+              <p>+1 Hour Study</p>
+              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setStudy(false);
+                setCount(prev => prev-1)
+              }}>
+                   <X />
+              </button>
+            </div>}
+            {mala &&  <div className='flex items-center text-white'>
+              <p>+1 Mala</p>
+              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setMala(false);
+                setCount(prev => prev-1);}
+              }>
+                   <X />
+              </button>
+            </div>}
+            {gym &&  <div className='flex items-center text-white'>
+              <p>+1 Gym/Exercise</p>
+              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setGym(false);
+                setCount(prev => prev-1);
+              }}>
+                   <X />
+              </button>
+            </div>}
+            {
+              junk &&  <div className='flex items-center text-white'>
+              <p>+1No JunkFood</p>
+              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setJunk(false);
+                setCount(prev => prev-1);
+              }}>
+                   <X />
+              </button>
+            </div>
+            }
+          </div>
         </div>}
       <div className='flex flex-col gap-4 w-full'>
         <div className='flex gap-4'>
