@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
 import { X } from 'lucide-react';
-const DashFooter = ({flag}) => {
-
-  const [count,setCount] = useState(0);
-  const [study,setStudy] = useState(false);
-  const [junk,setJunk] = useState(false);
-  const [gym,setGym] = useState(false);
-  const[mala,setMala] = useState(false);
+import {usePlayer} from '../../Context/usePlayer';
+const DashFooter = () => {
+  const {flag,
+      count,setCount,
+                study,setStudy,
+                junk,setJunk,
+                gym,setGym,
+                mali,setMali,
+  } = usePlayer(); 
+  // const [count,setCount] = useState(0);
+  // const [study,setStudy] = useState(false);
+  // const [junk,setJunk] = useState(false);
+  // const [gym,setGym] = useState(false);
+  // const[mali,setMali] = useState(false);
 
   return (
     <div className='mt-3 mx-4 flex flex-col gap-6 p-3 '>
@@ -29,7 +36,7 @@ const DashFooter = ({flag}) => {
               <h2 className='text-white font-bold'>+1 Hour Study</h2>
             </div>
               <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
-              setMala(true);
+              setMali(true);
               }
               } >
               <i className='text-2xl text-white'>+</i>
@@ -60,9 +67,9 @@ const DashFooter = ({flag}) => {
                    <X />
               </button>
             </div>}
-            {mala &&  <div className='flex items-center text-white'>
+            {mali &&  <div className='flex items-center text-white'>
               <p>+1 Mala</p>
-              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setMala(false);
+              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setMali(false);
                 setCount(prev => prev-1);}
               }>
                    <X />

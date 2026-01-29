@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
+import {usePlayer} from "../../Context/usePlayer";
+import { Link } from 'react-router-dom';
 
-const DashNav = ({level}) => {
-
+const DashNav = () => {
+  const {level}  = usePlayer();
   const [now, setNow] = useState(new Date());
 
   useEffect(() => {
@@ -25,7 +27,7 @@ const DashNav = ({level}) => {
 
 
   return (
-    <div className='flex flex-col items-start'>``
+    <div className='flex flex-col items-start'>
     <div className='flex items-center gap-[20vh]'>
         <div className='flex gap-3 justify-center items-center mt-3 ml-7'>
            <span>👤</span>
@@ -45,13 +47,13 @@ const DashNav = ({level}) => {
         </div>
         <div className='flex gap-4'>
           <div className='h-full w-full rounded-lg hover:bg-gray-800 py-2'>
-            <a href="'/'" className='text-white font-bold flex items-center justify-center px-4'>Dashboard</a>
+            <Link to="/" className='text-white font-bold flex items-center justify-center px-4'>Dashboard</Link>
           </div>
           <div className='h-full w-full outline-1 outline-[#BD6FFF] hover:bg-[##BD6FFF] rounded-lg  py-2'>
-            <a href="/stats" className='text-[#BD6FFF] font-bold px-4 flex items-center justify-center hover:text-white'>Stats</a>
+            <Link to="/stats" className='text-[#BD6FFF] font-bold px-4 flex items-center justify-center hover:text-white'>Stats</Link>
           </div>
           <div className='h-full w-full outline-1 outline-[#31FA96] rounded-lg  py-2'>
-            <a className='text-[#31FA96] font-bold px-4 flex items-center justify-center hover:text-white' href="/analytics">Analytics</a>
+            <Link  className='text-[#31FA96] font-bold px-4 flex items-center justify-center hover:text-white' to="/analytics">Analytics</Link>
           </div>
           <h2 className='text-[#31FA96] font-bold flex items-center justify-center'>ACTIVE</h2>
         </div>

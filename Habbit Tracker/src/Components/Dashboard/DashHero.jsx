@@ -1,5 +1,7 @@
 import React from 'react'
-const DashHero = ({completedTask,xp,strength,wisdom,intelligence}) => {
+import {usePlayer} from '../../Context/usePlayer';
+const DashHero = () => {
+  const {completedTask,xp,strength,wisdom,intelligence, toalTask,totalXP}  = usePlayer();
   const Progress  = Math.min((xp/1000)*100,100);
   // useEffect(() => {
   //   if (xp >= 1000) {
@@ -15,7 +17,7 @@ const DashHero = ({completedTask,xp,strength,wisdom,intelligence}) => {
       <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 rounded-xl'>
         <h1 className='text-[#22E2FF] size-7 font-extrabold whitespace-nowrap'>EXPERIENCE POINTS</h1>
 
-        <p className='font-extrabold text-white text-2xl' >{xp}/1,000</p>
+        <p className='font-extrabold text-white text-2xl' >{xp}/{totalXP}</p>
         <p className='text-[#22E2FF] size-1  whitespace-nowrap'>Points Until Level Up</p>
 
       </div>
@@ -25,7 +27,7 @@ const DashHero = ({completedTask,xp,strength,wisdom,intelligence}) => {
        <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 rounded-xl'>
          <h1 className='text-[#38FFC1] size-7 font-extrabold whitespace-nowrap'>DAILY PROGRESS</h1>
 
-        <p className='font-extrabold text-white text-2xl' >{completedTask}/3</p>
+        <p className='font-extrabold text-white text-2xl' >{completedTask}/{toalTask}</p>
         <p className='text-[#38FFC1] size-1 whitespace-nowrap'>Daily Complete Quests</p>
       </div>
 
