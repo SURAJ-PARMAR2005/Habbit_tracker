@@ -6,7 +6,7 @@ import { ChartColumnIncreasing } from 'lucide-react';
 import { usePlayer } from '../../Context/usePlayer'
 const AnalyticsHero = () => {
 
- const {strength,wisdom,intelligence,level} = usePlayer();
+ const {strength,wisdom,intelligence,level,xp,totalXP} = usePlayer();
   return (
     <div className='grid sm:grid-cols-12 gap-6 p-6 overflow-x-hidden'>
         {/* Strength div */}
@@ -77,11 +77,11 @@ const AnalyticsHero = () => {
         <div className='h-13 flex items-center gap-70 '>
             <div className='flex flex-col '>
                 <p className='text-slate-600'>Experience Points</p>
-                <h1 className='text-xl font-bold text-[#52AFFF]'>1,000</h1>
+                <h1 className='text-xl font-bold text-[#52AFFF]'>{totalXP}</h1>
             </div>
              <div className='flex flex-col '>
                 <p className='text-slate-600'>Experience Points</p>
-                <h1 className='text-xl font-bold text-[#31FA96]'>0</h1>
+                <h1 className='text-xl font-bold text-[#31FA96]'>{xp}</h1>
             </div>
         </div>
       </div>

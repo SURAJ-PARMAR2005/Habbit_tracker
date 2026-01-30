@@ -8,6 +8,7 @@ const DashFooter = () => {
                 junk,setJunk,
                 gym,setGym,
                 mali,setMali,
+                updateProgress,
   } = usePlayer(); 
   // const [count,setCount] = useState(0);
   // const [study,setStudy] = useState(false);
@@ -30,6 +31,11 @@ const DashFooter = () => {
           <div className='m-2 flex gap-2 justify-items-start '>
             <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl   '   onClick={() => {setCount(prev => prev+1);
             setStudy(true);
+            updateProgress({
+                    xpDelta: 200,
+                    taskDelta: 1,
+                    intelligenceDelta: 2,
+                  });
             }
           }  >
               <i className='text-2xl text-white'>+</i>
@@ -37,6 +43,12 @@ const DashFooter = () => {
             </div>
               <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setMali(true);
+            updateProgress({
+                    xpDelta: 200,
+                    taskDelta: 1,
+                    wisdomDelta: 2,
+                  });
+
               }
               } >
               <i className='text-2xl text-white'>+</i>
@@ -44,11 +56,22 @@ const DashFooter = () => {
             </div> 
              <div className='flex gap-2  items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setGym(true);
+            updateProgress({
+                    xpDelta: 200,
+                    taskDelta: 1,
+                    strengthDelta: 2,
+                  });
+
              }} >
               <i className='text-2xl text-white'>+</i>
               <h2 className='text-white font-bold'>+1 Gym/Exercise</h2>
             </div>  <div className='flex gap-2 items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setJunk(true);
+            updateProgress({
+                    xpDelta: 200,
+                    taskDelta: 1,
+                    strengthDelta: 2,
+                  });
             }} >
               <i className='text-2xl text-white'>+</i>
               <h2 className='text-white font-bold'>+1 No Junk Food</h2>
@@ -62,7 +85,12 @@ const DashFooter = () => {
             {study &&  <div className='flex items-center text-white'>
               <p>+1 Hour Study</p>
               <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setStudy(false);
-                setCount(prev => prev-1)
+                setCount(prev => prev-1);
+                  updateProgress({
+                    xpDelta: -200,
+                    taskDelta: -1,
+                    strengthDelta: -2,
+                  });
               }}>
                    <X />
               </button>
@@ -70,7 +98,13 @@ const DashFooter = () => {
             {mali &&  <div className='flex items-center text-white'>
               <p>+1 Mala</p>
               <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setMali(false);
-                setCount(prev => prev-1);}
+                setCount(prev => prev-1);
+                  updateProgress({
+                    xpDelta: -200,
+                    taskDelta: -1,
+                    wisdomDelta: -2,
+                  });
+              }
               }>
                    <X />
               </button>
@@ -79,6 +113,11 @@ const DashFooter = () => {
               <p>+1 Gym/Exercise</p>
               <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setGym(false);
                 setCount(prev => prev-1);
+                  updateProgress({
+                    xpDelta: -200,
+                    taskDelta: -1,
+                    strengthDelta: -2,
+                  });
               }}>
                    <X />
               </button>
@@ -88,6 +127,11 @@ const DashFooter = () => {
               <p>+1No JunkFood</p>
               <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setJunk(false);
                 setCount(prev => prev-1);
+                  updateProgress({
+                    xpDelta: -200,
+                    taskDelta: -1,
+                    strengthDelta: -2,
+                  });
               }}>
                    <X />
               </button>

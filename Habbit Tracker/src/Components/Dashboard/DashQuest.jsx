@@ -18,18 +18,6 @@ const DashQuest = () => {
     Spiritual,
     SetSpritual,
   } = usePlayer();
-  // const [goal,setGoal] = useState(2);
-  // const [mala,setMala] = useState(2);
-  // const [physical,setPhysical] = useState(false);
-  // const [Knowledge,setknowledge] = useState(false);
-  // const [Spiritual,SetSpritual] = useState(false);
-  // const [completeTask,setCompletTask] = useState(0);
-  // const [xp,setXp] = useState(0);
-
-  // const completedTask = (xpgain) => {
-  //     setCompletTask((prev) => prev + 1);
-  //     setXp((prev) => prev + xpgain);
-  // }
 
   return (
     <div className="flex flex-col gap-6 text-white pl-6">
