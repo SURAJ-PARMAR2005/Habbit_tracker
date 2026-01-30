@@ -30,20 +30,22 @@ const HeatMap = () => {
         
         {/* footer of this subcomponent */}
 
-        <div className='flex items-center justify-between p-2'>
+        <div className='flex justify-between p-2'>
             <p className='text-[#766D61]'>No Activity</p>
-            <div className='flex  flex-col'>
-                <div className='flex gap-2 items-center'>
-                    {arr[0]}
+            <div className='flex  flex-col gap-3'>
+                <div className='flex gap-2 items-center justify-center'>
+                    <div className='h-3 w-3 bg-gray-500 border border-blue-500/30 rounded '></div>
                 <MoveRight className='text-white h-3 w-3' />
-                    {arr[0]}
+                    <div className='h-3 w-3 bg-green-200 border border-blue-500/30 rounded '></div>
                 <MoveRight className='text-white h-3 w-3' />
-                    {arr[0]}
+                    <div className='h-3 w-3 bg-green-300 border border-blue-500/30 rounded '></div>
                 <MoveRight className='text-white h-3 w-3' />
-                    {arr[0]}
+                    <div className='h-3 w-3 bg-green-400 border border-blue-500/30 rounded '></div>
                 <MoveRight className='text-white h-3 w-3' />
-                    {arr[0]}
+                    <div className='h-3 w-3 bg-green-500 border border-blue-500/30 rounded '></div>
+               
                 </div>
+                <p className='text-[#766D61]'>Real-time data: Only your actual completed quests and extras are shown</p>
             </div>
             <p className='text-[#766D61]'>High Activity</p>
         </div>
