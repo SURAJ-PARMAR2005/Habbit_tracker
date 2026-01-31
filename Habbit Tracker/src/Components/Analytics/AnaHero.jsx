@@ -20,7 +20,10 @@ const AnaHero = ({
           onClick={() => {
             if (heat) {
               setHeatMap(false);
-            } else setHeatMap(true);
+            } else {setHeatMap(true);
+              setStreak(false);
+              setAchivement(false);
+            }
           }}
         >
           <h2>Activity Heatmap</h2>
@@ -29,7 +32,10 @@ const AnaHero = ({
          onClick={() => {
             if (streak) {
               setStreak(false);
-            } else setStreak(true);
+            } else  {setHeatMap(false);
+              setStreak(true);
+              setAchivement(false);
+            }
           }}
         >
           <h2>Streaks & Goals</h2>
@@ -38,7 +44,10 @@ const AnaHero = ({
          onClick={() => {
             if (achievement) {
               setAchivement(false);
-            } else setAchivement(true);
+            }  else {setHeatMap(false);
+              setStreak(false);
+              setAchivement(true);
+            }
           }}>
           <h2>Achievements</h2>
         </div>
