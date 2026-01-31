@@ -1,7 +1,7 @@
 import React from 'react'
 import {usePlayer} from '../../Context/usePlayer';
 const DashHero = () => {
-  const {completedTask,xp,strength,wisdom,intelligence, toalTask,totalXP,level}  = usePlayer();
+  const {completedTask,xp,strength,wisdom,intelligence, toalTask,totalXP,level,currStreak}  = usePlayer();
   const Progress  = Math.min((xp/1000)*100,100);
   // useEffect(() => {
   //   if (xp >= 1000) {
@@ -56,7 +56,7 @@ const DashHero = () => {
        <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 rounded-xl'>
          <h1 className='text-[#FF941C] size-7 font-extrabold whitespace-nowrap'>CURRENT STREAK</h1>
 
-        <p className='font-extrabold text-white text-2xl' >0</p>
+        <p className='font-extrabold text-white text-2xl' >{currStreak}</p>
         <p className='text-[#FF941C] size-1 whitespace-nowrap'>Days Completed</p>
       </div>
         </div>

@@ -6,7 +6,7 @@ import { ChartColumnIncreasing } from 'lucide-react';
 import { usePlayer } from '../../Context/usePlayer'
 const AnalyticsHero = () => {
 
- const {strength,wisdom,intelligence,level,xp,totalXP} = usePlayer();
+ const {strength,wisdom,intelligence,level,xp,totalXP,currStreak,longestStreak} = usePlayer();
   return (
     <div className='grid sm:grid-cols-12 gap-6 p-6 overflow-x-hidden'>
         {/* Strength div */}
@@ -55,7 +55,7 @@ const AnalyticsHero = () => {
       {/* streak */}
         <div className='max-h-full w-full border bg-[#172131] border-blue-500/30 flex flex-col items-center justify-evenly rounded-xl col-span-3 '>
         <Award className='text-[#31FA96]' />
-        <h1 className='text-white text-2xl'>0</h1>
+        <h1 className='text-white text-2xl'>{longestStreak}</h1>
         <p className='text-slate-500'>Longest Streak</p>
       </div>
       {/* max streak */}
@@ -80,8 +80,8 @@ const AnalyticsHero = () => {
                 <h1 className='text-xl font-bold text-[#52AFFF]'>{totalXP}</h1>
             </div>
              <div className='flex flex-col '>
-                <p className='text-slate-600'>Experience Points</p>
-                <h1 className='text-xl font-bold text-[#31FA96]'>{xp}</h1>
+                <p className='text-slate-600'>Current Streak</p>
+                <h1 className='text-xl font-bold text-[#31FA96]'>{currStreak}</h1>
             </div>
         </div>
       </div>

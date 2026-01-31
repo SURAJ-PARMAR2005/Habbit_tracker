@@ -23,6 +23,8 @@ export const PlayerProvider = ({children}) => {
             const[mali,setMali] = useState(false);
             const [toalTask,SetTotalTask]  = useState(3);
             const [totalXP,SetTotalXp] = useState(1000);
+            const [currStreak,setCurrStreak] = useState(0);
+            const [longestStreak,setLongestStreak] = useState(0);
 
   const updateProgress = ({
     xpDelta = 0,
@@ -39,9 +41,15 @@ export const PlayerProvider = ({children}) => {
       setFlag(true);
       SetTotalTask(prev => prev + 3);
     }
-    console.log(completedTask)
+    // console.log(completedTask)
         if(completedTask <2) setFlag(false);
-    console.log(!flag);
+        if(completedTask == 2) {
+          setCurrStreak(1);
+        }
+        if(currStreak>0){
+          setLongestStreak(prev => prev + 1)
+        }
+    // console.log(!flag);
 
     // stats
     setStrength((prev) => Math.max(prev + strengthDelta, 0));
@@ -83,6 +91,7 @@ export const PlayerProvider = ({children}) => {
                 mali,setMali,
                 toalTask,SetTotalTask,
                 totalXP,SetTotalXp,
+                currStreak,longestStreak
       }}
     >
       {children}
