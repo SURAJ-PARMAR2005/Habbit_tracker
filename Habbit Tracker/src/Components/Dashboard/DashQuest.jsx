@@ -96,13 +96,13 @@ const DashQuest = () => {
                   updateProgress({
                     xpDelta: -(goal * 100),
                     taskDelta: -1,
-                    intelligenceDelta: -goal,
+                    intelligenceDelta: -2,
                   });
-                } else
-                  updateProgress({
+                } 
+                 else updateProgress({
                     xpDelta: goal * 100,
                     taskDelta: 1,
-                    intelligenceDelta: goal,
+                    intelligenceDelta: 2,
                   });
               }}
             />

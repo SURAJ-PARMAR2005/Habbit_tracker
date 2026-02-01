@@ -9,6 +9,10 @@ const DashFooter = () => {
                 gym,setGym,
                 mali,setMali,
                 updateProgress,
+                 exStudyCount,setExStudyCount,
+                exMalaCount,setExMalaCount,
+                exGymCount,setExGymCount,
+                exJunkCount,setExJunkCount,
   } = usePlayer(); 
   // const [count,setCount] = useState(0);
   // const [study,setStudy] = useState(false);
@@ -31,6 +35,7 @@ const DashFooter = () => {
           <div className='m-2 flex gap-2 justify-items-start '>
             <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl   '   onClick={() => {setCount(prev => prev+1);
             setStudy(true);
+            setExStudyCount(prev => prev+1);
             updateProgress({
                     xpDelta: 200,
                     taskDelta: 1,
@@ -43,6 +48,7 @@ const DashFooter = () => {
             </div>
               <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setMali(true);
+              setExMalaCount(prev => prev+1);
             updateProgress({
                     xpDelta: 200,
                     taskDelta: 1,
@@ -56,6 +62,7 @@ const DashFooter = () => {
             </div> 
              <div className='flex gap-2  items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setGym(true);
+              setExGymCount(prev => prev+1);
             updateProgress({
                     xpDelta: 200,
                     taskDelta: 1,
@@ -67,6 +74,7 @@ const DashFooter = () => {
               <h2 className='text-white font-bold'>+1 Gym/Exercise</h2>
             </div>  <div className='flex gap-2 items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setJunk(true);
+              setExJunkCount(prev => prev+1);
             updateProgress({
                     xpDelta: 200,
                     taskDelta: 1,
@@ -79,11 +87,11 @@ const DashFooter = () => {
           </div>
         </div>)}
       </div>
-       {count &&  <div className='h-20  p-3 rounded-xl border border-blue-500/30 flex flex-col  justify-between '>
+     <div className={` h-20 ${count?"block":"hidden"}  p-3 rounded-xl border border-blue-500/30 flex flex-col  justify-between `}>
             <h1 className='text-[#22E2FF]  '>TODAY'S EXTRA TASKS:</h1>
           <div className='flex gap-2 m-3'>
             {study &&  <div className='flex items-center text-white'>
-              <p>+1 Hour Study</p>
+              <p>+{exStudyCount} Hour Study</p>
               <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setStudy(false);
                 setCount(prev => prev-1);
                   updateProgress({
@@ -96,7 +104,7 @@ const DashFooter = () => {
               </button>
             </div>}
             {mali &&  <div className='flex items-center text-white'>
-              <p>+1 Mala</p>
+              <p>+{exMalaCount} Mala</p>
               <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setMali(false);
                 setCount(prev => prev-1);
                   updateProgress({
@@ -110,7 +118,7 @@ const DashFooter = () => {
               </button>
             </div>}
             {gym &&  <div className='flex items-center text-white'>
-              <p>+1 Gym/Exercise</p>
+              <p>+{exGymCount} Gym/Exercise</p>
               <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setGym(false);
                 setCount(prev => prev-1);
                   updateProgress({
@@ -124,7 +132,7 @@ const DashFooter = () => {
             </div>}
             {
               junk &&  <div className='flex items-center text-white'>
-              <p>+1No JunkFood</p>
+              <p>+{exJunkCount } No JunkFood</p>
               <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setJunk(false);
                 setCount(prev => prev-1);
                   updateProgress({
@@ -138,7 +146,7 @@ const DashFooter = () => {
             </div>
             }
           </div>
-        </div>}
+        </div>
       <div className='flex flex-col gap-4 w-full'>
         <div className='flex gap-4'>
             <i>⚠️ </i>

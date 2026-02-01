@@ -11,20 +11,24 @@ export const PlayerProvider = ({children}) => {
   const [intelligence, setIntelligence] = useState(10);
   const [level, setLevel] = useState(1);
   const [flag, setFlag] = useState(false);
-          const [goal,setGoal] = useState(2);
-          const [mala,setMala] = useState(2);
-          const [physical,setPhysical] = useState(false);
-          const [Knowledge,setknowledge] = useState(false);
-          const [Spiritual,SetSpritual] = useState(false);
-            const [count,setCount] = useState(0);
-            const [study,setStudy] = useState(false);
-            const [junk,setJunk] = useState(false);
-            const [gym,setGym] = useState(false);
-            const[mali,setMali] = useState(false);
-            const [toalTask,SetTotalTask]  = useState(3);
-            const [totalXP,SetTotalXp] = useState(1000);
-            const [currStreak,setCurrStreak] = useState(0);
-            const [longestStreak,setLongestStreak] = useState(0);
+  const [goal,setGoal] = useState(2);
+  const [mala,setMala] = useState(2);
+  const [physical,setPhysical] = useState(false);
+  const [Knowledge,setknowledge] = useState(false);
+  const [Spiritual,SetSpritual] = useState(false);
+  const [count,setCount] = useState(0);
+  const [study,setStudy] = useState(false);
+  const [junk,setJunk] = useState(false);
+  const [gym,setGym] = useState(false);
+  const[mali,setMali] = useState(false);
+  const [toalTask,SetTotalTask]  = useState(3);
+  const [totalXP,SetTotalXp] = useState(1000);
+  const [currStreak,setCurrStreak] = useState(0);
+  const [longestStreak,setLongestStreak] = useState(0);
+  const [exStudyCount,setExStudyCount] = useState(0);
+  const [exMalaCount,setExMalaCount] = useState(0);
+  const [exGymCount,setExGymCount] = useState(0);
+  const [exJunkCount,setExJunkCount] = useState(0);
 
   const updateProgress = ({
     xpDelta = 0,
@@ -37,7 +41,7 @@ export const PlayerProvider = ({children}) => {
     if (taskDelta !== 0) {
       setCompletTask((prev) => Math.max(prev + taskDelta, 0));
     }
-    if (completedTask >= 2) {
+    if (completedTask >= toalTask-1) {
       setFlag(true);
       SetTotalTask(prev => prev + 3);
     }
@@ -91,7 +95,11 @@ export const PlayerProvider = ({children}) => {
                 mali,setMali,
                 toalTask,SetTotalTask,
                 totalXP,SetTotalXp,
-                currStreak,longestStreak
+                currStreak,longestStreak,
+                exStudyCount,setExStudyCount,
+                exMalaCount,setExMalaCount,
+                exGymCount,setExGymCount,
+                exJunkCount,setExJunkCount,
       }}
     >
       {children}
