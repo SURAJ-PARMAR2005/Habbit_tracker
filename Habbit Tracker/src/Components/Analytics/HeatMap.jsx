@@ -1,7 +1,12 @@
 import React from 'react'
 import { Calendar } from 'lucide-react';
 import { MoveRight } from 'lucide-react';
+import { usePlayer } from '../../Context/usePlayer';
 const HeatMap = () => {
+    const {completedTask} = usePlayer();
+    const todayIndex = Math.floor(
+        (new Date().setHours(0,0,0,0) - new Date(new Date().getFullYear(),0,1).setHours(0,0,0,0))/(1000 * 60 * 60 * 24)
+    );
     const block = () => {
         return <div className='h-3 w-3 bg-gray-500 border border-blue-500/30 rounded col-span-1 '></div>
     }

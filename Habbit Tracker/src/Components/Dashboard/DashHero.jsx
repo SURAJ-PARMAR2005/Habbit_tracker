@@ -14,7 +14,7 @@ const DashHero = () => {
         <div className='flex gap-6'>
             
         {/* Experience Points */}
-      <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 rounded-xl'>
+      <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 rounded-xl shadow-2xl shadow-blue-400/30'>
         <h1 className='text-[#22E2FF] size-7 font-extrabold whitespace-nowrap'>EXPERIENCE POINTS</h1>
 
         <p className='font-extrabold text-white text-2xl' >{xp}/{totalXP}</p>
@@ -24,7 +24,7 @@ const DashHero = () => {
 
 
 {/* Daily Progress */}
-       <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 rounded-xl'>
+       <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 rounded-xl shadow-2xl shadow-green-400/30'>
          <h1 className='text-[#38FFC1] size-7 font-extrabold whitespace-nowrap'>DAILY PROGRESS</h1>
 
         <p className='font-extrabold text-white text-2xl' >{completedTask}/{toalTask}</p>
@@ -32,7 +32,7 @@ const DashHero = () => {
       </div>
 
       {/* Character Stats */}
-       <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 justify-evenly rounded-xl'>
+       <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 justify-evenly rounded-xl shadow-2xl shadow-purple-400/30'>
          <h1 className='text-[#BD6FFF] size-7 font-extrabold whitespace-nowrap'>CHARACTER STATS</h1>
         <div className='flex flex-col gap-3'>
             <div className='flex items-center justify-between mb-1' >
@@ -53,7 +53,7 @@ const DashHero = () => {
       </div>
 
       {/* Current Streak*/}
-       <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 rounded-xl'>
+       <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 rounded-xl shadow-2xl shadow-orange-400/30'>
          <h1 className='text-[#FF941C] size-7 font-extrabold whitespace-nowrap'>CURRENT STREAK</h1>
 
         <p className='font-extrabold text-white text-2xl' >{currStreak}</p>
@@ -64,7 +64,7 @@ const DashHero = () => {
 
     {/* Progress */}
 
-    <div className='flex flex-col h-[20vh] w-full items-center gap-3 rounded-xl border border-blue-500/30 justify-evenly p-3'>
+    <div className='flex flex-col h-[20vh] w-full items-center gap-3 rounded-xl border border-blue-500/30 justify-evenly p-3 shadow-2xl shadow-blue-400/30'>
         <div className='flex w-full  justify-between'>
             <h1 className='text-[#22E2FF] font-extrabold'>LEVEL {level} PROGRESS</h1>
             <h2 className='text-[#22E2FF] font-extrabold'>{xp}/1000 XP</h2>

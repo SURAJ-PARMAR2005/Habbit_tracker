@@ -32,7 +32,7 @@ const DashQuest = () => {
         {/* container */}
 
         {/* cards three */}
-        <div className="physical-training flex flex-col border border-red-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start">
+        <div className={`physical-training flex flex-col border ${physical?"border-2 border-red-600 shadow-2xl shadow-red-600":"border"} border-red-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start shadow-xl shadow-red-400/30 `}>
           {/* card1 */}
           <div className="flex gap-[14vh] items-center justify-between p-3">
             <div className="flex gap-2">
@@ -76,7 +76,7 @@ const DashQuest = () => {
             </div>
           )}
         </div>
-        <div className="physical-training flex flex-col border border-green-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start">
+        <div className={`Knowledge-acuisition flex flex-col border ${Knowledge?"border-2 border-green-600 shadow-2xl shadow-green-600":"border"} border-green-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start shadow-xl shadow-green-400/30 `}>
           {/* card1 */}
           <div className="flex gap-[14vh] items-center justify-between p-3">
             <div className="flex gap-2">
@@ -142,7 +142,7 @@ const DashQuest = () => {
           )}
           <p className="text-[#22E2FF] ">Goal {goal} hours</p>
         </div>
-        <div className="physical-training flex flex-col border border-purple-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start">
+        <div className={`spritual-acuisition shadow-xl ${Spiritual?"border-2 border-purple-600 shadow-2xl shadow-purple-600":"border"} shadow-purple-400/30 flex flex-col border border-purple-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start`}>
           {/* card1 */}
           <div className="flex gap-[14vh] items-center justify-between p-3">
             <div className="flex gap-2">

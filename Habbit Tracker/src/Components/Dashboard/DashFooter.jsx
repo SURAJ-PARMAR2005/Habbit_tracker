@@ -30,7 +30,7 @@ const DashFooter = () => {
        {!flag &&  (<div className='h-12 mx-3.5 rounded-xl w- border border-white flex items-center pl-4 '>
             <h1 className='text-[#AFA89D] '>COMPLETE ALL DAILY TASKS TO UNLOCK EXTRA TASKS</h1>
         </div>)}
-       {flag && ( <div className='h-28  border border-green-500/30 rounded-xl flex flex-col justify-between gap-4 p-6'>
+       {flag && ( <div className='h-28  border border-green-500/30 rounded-xl flex flex-col justify-between gap-4 p-6 shadow-sm shadow-green-400/30'>
           <h1 className='text-[#38FFC1] font-bold'>DAILY QUESTS COMPLETED! UNLOCK EXTRA TASKS FOR BONUS XP AND STATS.</h1>
           <div className='m-2 flex gap-2 justify-items-start '>
             <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl   '   onClick={() => {setCount(prev => prev+1);
@@ -87,7 +87,7 @@ const DashFooter = () => {
           </div>
         </div>)}
       </div>
-     <div className={` h-20 ${count?"block":"hidden"}  p-3 rounded-xl border border-blue-500/30 flex flex-col  justify-between `}>
+     <div className={` h-20 ${count?"block":"hidden"}  p-3 rounded-xl border border-blue-500/30 flex flex-col  justify-between shadow-xl shadow-blue-400/30 `}>
             <h1 className='text-[#22E2FF]  '>TODAY'S EXTRA TASKS:</h1>
           <div className='flex gap-2 m-3'>
             {study &&  <div className='flex items-center text-white'>
@@ -147,12 +147,12 @@ const DashFooter = () => {
             }
           </div>
         </div>
-      <div className='flex flex-col gap-4 w-full'>
+      <div className='flex flex-col gap-4 w-full '>
         <div className='flex gap-4'>
             <i>⚠️ </i>
             <h1 className='text-[#FF6063] font-extrabold text-xl'>PENALITY</h1>
         </div>
-        <div className='h-full mx-3.5 rounded-xl border border-red-500/30 flex flex-col gap-1.5 items-center p-4 pr-50% '>
+        <div className='h-full mx-3.5 rounded-xl border border-red-500/30 flex flex-col gap-1.5 items-center p-4 pr-50% shadow-xl shadow-red-400/30 '>
             <h2 className='text-[#F86063] '>YOU HAVE 100 XP PENALTY FROM MISSED DAILY QUESTS.</h2>
             <p className='text-[#F86063]'>Complete all daily tasks to prevent future penalties</p>
         </div>
