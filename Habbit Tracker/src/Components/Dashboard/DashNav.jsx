@@ -64,18 +64,18 @@ const DashNav = () => {
         </div>
         <Menu className='block md:hidden text-[#21D8F8] mr-3 text-2xl ' onClick={() => setNav(!nav)} />
         {/* For mobile */}
-        <div className={`fixed flex-col top-0 left-0 h-screen w-screen z-30  ${nav? "md:block":"hidden" } bg-black`}>
+        <div className={`fixed flex-col top-0 left-0 h-100 w-screen z-30  ${nav? "md:block":"hidden" } bg-black`}>
           <div className='flex  items-center justify-end pr-14  py-3 text-2xl' onClick={() => setNav(!nav)}>
             <X className='text-[#21D8F8]' />
           </div>
-          <div className='h-full flex flex-col gap-4 justify-evenly items-center ' >
+          <div className='h-full flex flex-col  justify-items-start  items-center ' >
             <div className='h-full w-full rounded-lg hover:bg-gray-800 py-2'>
             <Link to="/" className='text-white font-bold flex items-center justify-center px-4'>Dashboard</Link>
           </div>
-          <div className='h-full w-full outline-1 outline-[#BD6FFF] hover:bg-[##BD6FFF] rounded-lg  py-2'>
+          <div className=' w-full outline-1 outline-[#BD6FFF] hover:bg-[##BD6FFF] rounded-lg  py-2'>
             <Link to="/stats" className='text-[#BD6FFF] font-bold px-4 flex items-center justify-center hover:text-white'>Stats</Link>
           </div>
-          <div className='h-full w-full outline-1 outline-[#31FA96] rounded-lg  py-2'>
+          <div className=' w-full outline-1 outline-[#31FA96] rounded-lg  py-2'>
             <Link  className='text-[#31FA96] font-bold px-4 flex items-center justify-center hover:text-white' to="/analytics">Analytics</Link>
           </div>
           </div>
