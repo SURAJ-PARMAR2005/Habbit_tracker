@@ -28,7 +28,7 @@ const DashQuest = () => {
       </div>
 
       {/* cards */}
-      <div className="flex gap-6 flex-1">
+      <div className="flex md:flex-row flex-col   gap-6 flex-1">
         {/* container */}
 
         {/* cards three */}

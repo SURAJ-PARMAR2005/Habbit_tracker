@@ -8,9 +8,9 @@ const AnalyticsHero = () => {
 
  const {strength,wisdom,intelligence,level,xp,currStreak,longestStreak} = usePlayer();
   return (
-    <div className='grid sm:grid-cols-12 gap-6 p-6 overflow-x-hidden'>
+    <div className='grid sm:grid-cols-12 gr gap-6 p-6 overflow-x-hidden'>
         {/* Strength div */}
-      <div className='h-full flex-1 justify-between w-full flex flex-col  bg-[#172131] p-3 gap-5 border-2 border-red-600/40 rounded-xl col-span-4 shadow-md shadow-red-600/40 '>
+      <div className='h-full flex-1 justify-between w-full flex flex-col  bg-[#172131] p-3 gap-5 border-2 border-red-600/40 rounded-xl md:col-span-4 col-span-12 shadow-md shadow-red-600/40 '>
         <div className='flex flex-col items-center justify-center gap-1.5'>
             <i className='flex items-center justify-center text-7xl'>💪</i>
             <h1 className='text-4xl text-[#FF6063]'>{strength}</h1>
@@ -22,7 +22,7 @@ const AnalyticsHero = () => {
         </div>
       </div>
       {/* wisdom div */}
-    <div className='h-full flex-1 justify-between w-full flex flex-col bg-[#172131] p-3 gap-5 border-2 border-[#58009E] rounded-xl col-span-4 shadow-md shadow-purple-600/40 '>
+    <div className='h-full flex-1 justify-between w-full flex flex-col bg-[#172131] p-3 gap-5 border-2 border-[#58009E] rounded-xl md:col-span-4 col-span-12 shadow-md shadow-purple-600/40 '>
         <div className='flex flex-col items-center justify-center gap-1.5'>
             <i className='flex items-center justify-center text-7xl'>🧘</i>
             <h1 className='text-4xl text-[#BD6FFF]'>{wisdom}</h1>
@@ -34,7 +34,7 @@ const AnalyticsHero = () => {
         </div>
       </div>
       {/* Intelligence */}
-      <div className='h-full flex-1 justify-between w-full flex flex-col bg-[#172131] p-3 gap-5 border-2 border-[#31FA96] rounded-xl col-span-4 shadow-md shadow-green-600/40 '>
+      <div className='h-full flex-1 justify-between w-full flex flex-col bg-[#172131] p-3 gap-5 border-2 border-[#31FA96] rounded-xl md:col-span-4 col-span-12 shadow-md shadow-green-600/40 '>
         <div className='flex flex-col items-center justify-center gap-1.5'>
             <i className='flex items-center justify-center text-7xl'>📚</i>
             <h1 className='text-4xl text-[#31FA96]'>{intelligence}</h1>
@@ -47,30 +47,30 @@ const AnalyticsHero = () => {
       </div>
 
       {/* current Level */}
-      <div className='min-h-full w-full border gap-4 p-3 bg-[#172131] border-blue-500/30 flex flex-col items-center justify-evenly rounded-xl col-span-3 shadow-md shadow-blue-600/40 '>
+      <div className='min-h-full w-full border gap-4 p-3 bg-[#172131] border-blue-500/30 flex flex-col items-center justify-evenly rounded-xl md:col-span-3 col-span-12 shadow-md shadow-blue-600/40 '>
         <TrendingUp className='text-[#52AFFF]' />
         <h1 className='text-white text-2xl'>{level}</h1>
         <p className='text-slate-500'>Current Level</p>
       </div>
       {/* streak */}
-        <div className='max-h-full w-full border bg-[#172131] border-blue-500/30 flex flex-col items-center justify-evenly rounded-xl col-span-3 shadow-md shadow-blue-600/40   '>
+        <div className='max-h-full w-full border bg-[#172131] border-blue-500/30 flex flex-col items-center justify-evenly rounded-xl md:col-span-3 col-span-12 shadow-md shadow-blue-600/40   '>
         <Award className='text-[#31FA96]' />
         <h1 className='text-white text-2xl'>{longestStreak}</h1>
         <p className='text-slate-500'>Longest Streak</p>
       </div>
       {/* max streak */}
-        <div className='max-h-full w-full border bg-[#172131] border-blue-500/30 flex flex-col items-center justify-evenly rounded-xl col-span-3 shadow-md shadow-blue-600/40'>
+        <div className='max-h-full w-full border bg-[#172131] border-blue-500/30 flex flex-col items-center justify-evenly rounded-xl md:col-span-3 col-span-12 shadow-md shadow-blue-600/40'>
         <AlarmClock className='text-[#FFCE1B]' />
         <h1 className='text-white text-2xl'>0</h1>
         <p className='text-slate-500'>Days Completed</p>
       </div>
         {/* success rate */}
-        <div className='max-h-full w-full border bg-[#172131] border-blue-500/30 flex flex-col items-center justify-evenly rounded-xl col-span-3 shadow-md shadow-blue-600/40'>
+        <div className='max-h-full w-full border bg-[#172131] border-blue-500/30 flex flex-col items-center justify-evenly rounded-xl md:col-span-3 col-span-12 shadow-md shadow-blue-600/40'>
         <ChartColumnIncreasing className='text-[#FF941C]' />
         <h1 className='text-white text-2xl'>100%</h1>
         <p className='text-slate-500'>Success Rate</p>
       </div>
-      <div className='max-h-full w-full bg-[#172131] flex flex-col justify-between gap-7 rounded-xl border border-blue-500/30 col-span-12 p-6 shadow-md shadow-blue-600/40'>
+      <div className='max-h-full w-full bg-[#172131] flex flex-col justify-between gap-7 rounded-xl border border-blue-500/30 col-span-12  p-6 shadow-md shadow-blue-600/40'>
         <div className='h-6  '>
             <h1 className='text-white text-xl'>Current Status</h1>
         </div>

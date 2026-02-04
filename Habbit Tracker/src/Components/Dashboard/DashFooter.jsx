@@ -30,9 +30,9 @@ const DashFooter = () => {
        {!flag &&  (<div className='h-12 mx-3.5 rounded-xl w- border border-white flex items-center pl-4 '>
             <h1 className='text-[#AFA89D] '>COMPLETE ALL DAILY TASKS TO UNLOCK EXTRA TASKS</h1>
         </div>)}
-       {flag && ( <div className='h-28  border border-green-500/30 rounded-xl flex flex-col justify-between gap-4 p-6 shadow-sm shadow-green-400/30'>
-          <h1 className='text-[#38FFC1] font-bold'>DAILY QUESTS COMPLETED! UNLOCK EXTRA TASKS FOR BONUS XP AND STATS.</h1>
-          <div className='m-2 flex gap-2 justify-items-start '>
+       {flag && ( <div className='h-28  border flex-1 border-green-500/30 rounded-xl flex flex-col justify-between gap-4 p-6 shadow-sm shadow-green-400/30'>
+          <h1 className='text-[#38FFC1] md:font-bold'>DAILY QUESTS COMPLETED! UNLOCK EXTRA TASKS FOR BONUS XP AND STATS.</h1>
+          <div className='m-2 flex md:flex-row flex-col gap-2 justify-items-start '>
             <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl   '   onClick={() => {setCount(prev => prev+1);
             setStudy(true);
             setExStudyCount(prev => prev+1);
@@ -87,9 +87,9 @@ const DashFooter = () => {
           </div>
         </div>)}
       </div>
-     <div className={` h-20 ${count?"block":"hidden"}  p-3 rounded-xl border border-blue-500/30 flex flex-col  justify-between shadow-xl shadow-blue-400/30 `}>
+     <div className={` h-20 ${count?"block":"hidden"}  flex-1 p-3 rounded-xl border border-blue-500/30 flex flex-col  justify-between shadow-xl shadow-blue-400/30 `}>
             <h1 className='text-[#22E2FF]  '>TODAY'S EXTRA TASKS:</h1>
-          <div className='flex gap-2 m-3'>
+          <div className='flex md:flex-row flex-col  gap-2 m-3'>
             {study &&  <div className='flex items-center text-white'>
               <p>+{exStudyCount} Hour Study</p>
               <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setStudy(false);

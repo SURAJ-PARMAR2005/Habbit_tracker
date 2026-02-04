@@ -11,7 +11,7 @@ const DashHero = () => {
 
   return (
     <div className=' min-w-screen flex gap-6  flex-col  p-6  mt-6'>
-        <div className='flex gap-6'>
+        <div className='flex md:flex-row flex-col gap-6'>
             
         {/* Experience Points */}
       <div className='flex flex-col gap-6 border p-6 border-blue-500/30 h-full flex-1 rounded-xl shadow-2xl shadow-blue-400/30'>
