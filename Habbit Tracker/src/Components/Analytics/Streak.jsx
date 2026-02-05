@@ -2,7 +2,9 @@ import React from 'react'
 import { Flame } from 'lucide-react'
 import { Target } from 'lucide-react';
 import { Trophy } from 'lucide-react';
+import { usePlayer } from '../../Context/usePlayer';
 const Streak = () => {
+const {currStreak,longestStreak} = usePlayer();
   return (
     <div className='grid grid-cols-2 gap-3 mt-10 '>
       {/* streak analysis */}
@@ -15,11 +17,11 @@ const Streak = () => {
         <div className='flex flex-col gap-2 mt-8'>
           <div className='flex items-center justify-between'>
             <p className='text-[#766D61]'>Current Streak</p>
-            <h2 className='text-[#52AFFF] text-2xl'>0 days</h2>
+            <h2 className='text-[#52AFFF] text-2xl'>{currStreak} days</h2>
           </div>
            <div className='flex items-center justify-between'>
             <p className='text-[#766D61]'>Longest Streak</p>
-            <h2 className='text-[#31FA96] text-2xl'>0 days</h2>
+            <h2 className='text-[#31FA96] text-2xl'>{longestStreak} days</h2>
           </div>
            <div className='flex items-center justify-between'>
             <p className='text-[#766D61]'>Success Rate</p>

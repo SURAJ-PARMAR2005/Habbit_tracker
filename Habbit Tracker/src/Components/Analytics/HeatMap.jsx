@@ -13,6 +13,14 @@ const HeatMap = () => {
     const arr = [];
    for(let i = 0;i<366;i++){
         arr.push(block());
+         if(i == todayIndex){
+            let a;
+            if(completedTask ==1)  a =  <div className='h-3 w-3 bg-green-200 border border-blue-500/30 rounded col-span-1 '></div>;
+            if(completedTask ==2)  a =  <div className='h-3 w-3 bg-green-300 border border-blue-500/30 rounded col-span-1 '></div>;
+            if(completedTask ==3)  a =  <div className='h-3 w-3 bg-green-400 border border-blue-500/30 rounded col-span-1 '></div>;
+            if(completedTask ==4)  a =  <div className='h-3 w-3 bg-green-500 border border-blue-500/30 rounded col-span-1 '></div>;
+            arr[i] = a;
+        }
     }
   return (
     <div className='bg-[#172131] rounded-xl border border-blue-500/30 flex-1 w-full mt-10 flex flex-col p-6 gap-3'>
