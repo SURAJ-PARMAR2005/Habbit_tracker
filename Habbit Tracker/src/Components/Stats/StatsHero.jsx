@@ -8,7 +8,7 @@ const AnalyticsHero = () => {
 
  const {strength,wisdom,intelligence,level,xp,currStreak,longestStreak} = usePlayer();
   return (
-    <div className='grid sm:grid-cols-12 gr gap-6 p-6 overflow-x-hidden'>
+    <div className='grid sm:grid-cols-12  md:gap-6 gap-5 md:p-6 p-5 '>
         {/* Strength div */}
       <div className='h-full flex-1 justify-between w-full flex flex-col  bg-[#172131] p-3 gap-5 border-2 border-red-600/40 rounded-xl md:col-span-4 col-span-12 shadow-md shadow-red-600/40 '>
         <div className='flex flex-col items-center justify-center gap-1.5'>
@@ -74,7 +74,7 @@ const AnalyticsHero = () => {
         <div className='h-6  '>
             <h1 className='text-white text-xl'>Current Status</h1>
         </div>
-        <div className='h-13 flex items-center gap-70 '>
+        <div className='flex-wrap flex justify-between items-center gap-7 '>
             <div className='flex flex-col '>
                 <p className='text-slate-600'>Experience Points</p>
                 <h1 className='text-xl font-bold text-[#52AFFF]'>{xp}</h1>
