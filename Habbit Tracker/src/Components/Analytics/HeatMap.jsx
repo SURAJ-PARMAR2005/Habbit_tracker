@@ -25,7 +25,7 @@ const HeatMap = () => {
   return (
     <div className='bg-[#172131] rounded-xl border border-blue-500/30 flex-1 w-full mt-10 flex flex-col p-6 gap-3'>
        {/* Heading */}
-        <div className='flex gap-2 items-center'>
+        <div className='md:flex gap-2 items-center'>
             <Calendar className='text-white' />
             <h2 className='text-white  text-xl'>Activity Heatmap - Real Daily Progress</h2>
         </div>
@@ -33,7 +33,7 @@ const HeatMap = () => {
         {/* subHeading */}
         <p className='text-[#766D61] py-5'>Shows your actual daily and extra task completions. Darker green = more tasks completed.</p>
         {/* Progress displayer */}
-        <div className='grid gap-2 grid-cols-52 '>
+        <div className='grid md:gap-2 gap-1.5 md:grid-cols-52  grid-cols-15 '>
             {
                 arr.map((ele) => (
                     ele
@@ -43,10 +43,10 @@ const HeatMap = () => {
         
         {/* footer of this subcomponent */}
 
-        <div className='flex justify-between p-2'>
+        <div className='flex justify-between md:p-2 gap-3'>
             <p className='text-[#766D61]'>No Activity</p>
-            <div className='flex  flex-col gap-3'>
-                <div className='flex gap-2 items-center justify-center'>
+            <div className='flex  flex-col md:gap-3 gap-1.5'>
+                <div className='flex md:gap-2  items-center justify-center'>
                     <div className='h-3 w-3 bg-gray-500 border border-blue-500/30 rounded '></div>
                 <MoveRight className='text-white h-3 w-3' />
                     <div className='h-3 w-3 bg-green-200 border border-blue-500/30 rounded '></div>
@@ -58,7 +58,7 @@ const HeatMap = () => {
                     <div className='h-3 w-3 bg-green-500 border border-blue-500/30 rounded '></div>
                
                 </div>
-                <p className='text-[#766D61]'>Real-time data: Only your actual completed quests and extras are shown</p>
+                <p className='text-[#766D61] md:block hidden '>Real-time data: Only your actual completed quests and extras are shown</p>
             </div>
             <p className='text-[#766D61]'>High Activity</p>
         </div>

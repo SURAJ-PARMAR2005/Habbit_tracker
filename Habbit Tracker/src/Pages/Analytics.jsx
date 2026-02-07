@@ -8,7 +8,7 @@ const Stats = () => {
   const [achievement,setAchivement] = useState(false);
   // const []
   return (
-    <div className='bg-[#181A1B] min-h-screen min-w-screen overflow-x-hidden overflow-y-hidden p-6'>
+    <div className='bg-[#181A1B] min-h-screen min-w-screen overflow-x-hidden overflow-y-hidden md:p-6 p-2'>
      <AnaNav  />
      <AnaHero heat={heat} streak={streak} achievement={achievement} setHeatMap = {setHeatMap} setStreak={setStreak} setAchivement={setAchivement} />
     </div>
