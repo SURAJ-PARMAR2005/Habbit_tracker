@@ -168,7 +168,7 @@ const Achievements = () => {
           <i>🔒</i>
         <h1 className='text-[#766D61] text-xl'>{head}</h1>
       </div>
-      <div className='flex items-center justify-center px-3'><p className='text-[#766D61] '>{sub}</p></div>
+      <div className='md:flex hidden items-center justify-center px-3'><p className='text-[#766D61] '>{sub}</p></div>
     </div>);
 });
 
@@ -179,7 +179,7 @@ const Achievements = () => {
         <Award className='text-white' text-xl />
         <h1 className='text-white text-xl '>Achievements (0/50 Unlocked)</h1>
       </div>
-      <div className='grid grid-cols-4 gap-4'>
+      <div className='grid md:grid-cols-4 grid-cols-1 gap-4'>
          {block.map(ele => (
         ele
       ))}

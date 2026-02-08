@@ -6,7 +6,7 @@ import { usePlayer } from '../../Context/usePlayer';
 const Streak = () => {
 const {currStreak,longestStreak} = usePlayer();
   return (
-    <div className='grid grid-cols-2 gap-3 mt-10 '>
+    <div className='grid md:grid-cols-2 grid-cols-1 gap-3 mt-10 '>
       {/* streak analysis */}
       <div className='col-span-1 rounded-xl border border-blue-500/30 flex-1 w-full bg-[#172131] p-6'>
         <div className='flex gap-2 items-center'>
@@ -80,12 +80,12 @@ const {currStreak,longestStreak} = usePlayer();
       </div>
 
       {/*  lower div Status  */}
-      <div className='col-span-2 flex-1 p-6 flex flex-col gap-6  rounded-xl border border-blue-500/30  w-full bg-[#172131]'>
+      <div className='md:col-span-2 col-span-1 flex-1 p-6 flex flex-col gap-6  rounded-xl border border-blue-500/30  w-full bg-[#172131]'>
         <div className='flex gap-2 items-center'>
           <Trophy className='text-amber-300' />
           <h1 className='text-white text-2xl'>Streak Goals Status</h1>
         </div>
-        <div className='flex gap-3 mt-3 items-center justify-self-auto'>
+        <div className='md:flex-row flex flex-col gap-3 mt-3 items-center justify-self-auto'>
           <div className='flex flex-col  border-2 w-full rounded-xl gap-1 items-center justify-center  border-[#766D61] py-3 px-7  bg-[#1F2A3B] '>
             <i>🔒</i>
             <h1 className='text-[#766D61] text-xl'>30-Day Warrior</h1>
