@@ -1,8 +1,8 @@
 import React from 'react'
 import { Award } from 'lucide-react';
-
+import {usePlayer} from '../../Context/usePlayer'
 const Achievements = () => {
-
+  const {completedTask} = usePlayer();
   const DataArrObj = [
       {
         "heading": "First Steps",
@@ -157,6 +157,7 @@ const Achievements = () => {
         "subHeading": "10 year streak (3650 days)",
       },
   ]
+
   const block = [];
   // console.log(block[0]);
   DataArrObj.map(e => {
@@ -170,7 +171,7 @@ const Achievements = () => {
       </div>
       <div className='md:flex hidden items-center justify-center px-3'><p className='text-[#766D61] '>{sub}</p></div>
     </div>);
-});
+  });
 
 
   return (

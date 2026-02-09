@@ -53,26 +53,32 @@ const {currStreak,longestStreak} = usePlayer();
           <div className='flex flex-col gap-2'>
             <div className='flex items-center justify-between' >
                <h1 className='text-[#766D61]'>30 Days Streak Goal</h1>
-            <h2 className='text-[#52AFFF] '>0/30</h2>
+            <h2 className='text-[#52AFFF] '>{currStreak}/30</h2>
             </div>
-            <div className='h-2 w-full bg-[#121A2A] rounded  '></div>
+            <div className='h-2 w-full bg-[#121A2A] rounded  '>
+              <div className= {` bg-blue-500/30 h-full w-[${currStreak}%]`}></div>
+            </div>
             <p className='text-[#766D61] text-sm'>30 days remaining</p>
           </div>
 
             <div className='flex flex-col gap-2'>
             <div className='flex items-center justify-between' >
                <h1 className='text-[#766D61]'>100 Days Streak Goal</h1>
-            <h2 className='text-[#31FA96] '>0/100</h2>
+            <h2 className='text-[#31FA96] '>{currStreak}/100</h2>
             </div>
-            <div className='h-2 w-full bg-[#121A2A] rounded  '></div>
+            <div className='h-2 w-full bg-[#121A2A] rounded  '>
+              <div className= {` bg-blue-500/30 h-full w-[${currStreak}%]`}></div>
+            </div>
             <p className='text-[#766D61] text-sm'>100 days remaining</p>
           </div>
             <div className='flex flex-col gap-2'>
             <div className='flex items-center justify-between' >
                <h1 className='text-[#766D61]'>365 Days Streak Goal</h1>
-            <h2 className='text-purple-500 '>0/365</h2>
+            <h2 className='text-purple-500 '>{currStreak}/365</h2>
             </div>
-            <div className='h-2 w-full bg-[#121A2A] rounded  '></div>
+            <div className='h-2 w-full bg-[#121A2A] rounded  '>
+              <div className= {` bg-blue-500/30 h-full w-[${currStreak}%]`}></div>
+            </div>
             <p className='text-[#766D61] text-sm'>365 days remaining</p>
           </div>
         </div>
