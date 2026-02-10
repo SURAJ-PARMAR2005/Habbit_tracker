@@ -30,7 +30,7 @@ const DashNav = () => {
 
   return (
     <div className='flex flex-col items-start'>
-    <div className='flex items-center gap-[20vh]'>
+    <div className='flex items-center justify-between gap-[20vh]'>
       {/* level wali div */}
         <div className='flex gap-3 justify-center items-center mt-3 ml-7'>
            <span>👤</span>
@@ -62,11 +62,11 @@ const DashNav = () => {
           </div>
           <h2 className='text-[#31FA96] font-bold flex items-center justify-center'>ACTIVE</h2>
         </div>
-        <Menu className='block md:hidden text-[#21D8F8] mr-3 text-2xl ' onClick={() => setNav(!nav)} />
+        <Menu className='block md:hidden text-[#21D8F8] mr-3 cursor-pointer text-2xl ' onClick={() => setNav(!nav)} />
         {/* For mobile */}
         <div className={`fixed flex-col top-0 left-0 h-screen w-screen z-30  ${nav? "md:block":"hidden" } bg-black`}>
           <div className='flex  items-center justify-end pr-14  py-3 text-2xl' onClick={() => setNav(!nav)}>
-            <X className='text-[#21D8F8]' />
+            <X className='text-[#21D8F8] cursor-pointer' />
           </div>
           <div className='h-full flex flex-col mx-3 gap-8 justify-items-start  items-center ' >
             <div className=' w-full rounded-lg hover:bg-gray-800 py-2'>
