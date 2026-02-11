@@ -29,7 +29,7 @@ const Achievements = () => {
         "heading": "Scholar",
         "subHeading": "Reach 20 Intelligence points",
         flag : intelligence >= 20 ? true : false,
-      },  { 
+      },  {        
         "heading": "Monthly Master",
         "subHeading": "Complete 30-day streak",
         flag : currStreak >= 30 ? true : false,
