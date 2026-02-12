@@ -32,7 +32,7 @@ const DashQuest = () => {
         {/* container */}
 
         {/* cards three */}
-        <div className={`physical-training flex flex-col border ${physical?"border-2 border-red-600 shadow-2xl shadow-red-600":"border"} border-red-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start shadow-xl shadow-red-400/30 `}>
+        <div className={`physical-training flex flex-col border ${physical?"border-2 border-red-600 shadow-xl shadow-red-600":"border"} border-red-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start shadow-xl shadow-red-400/30 `}>
           {/* card1 */}
           <div className="flex gap-[14vh] items-center justify-between p-3">
             <div className="flex gap-2">

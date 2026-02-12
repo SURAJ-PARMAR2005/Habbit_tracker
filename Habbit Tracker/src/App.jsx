@@ -5,12 +5,13 @@ import Analytics from './Pages/Analytics';
 import Stats from './Pages/Stats';
 const App = () => {
   return (
-  <Routes>
+    <div className='overflow-x-hidden overflow-y-hidden '>
+    <Routes>
     <Route path="/" element={<Dashboard />} />
     <Route path="/stats" element={<Stats />} />
     <Route path="/analytics" element={<Analytics />} />
-
   </Routes>
+    </div>
   )
 }
 

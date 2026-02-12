@@ -199,12 +199,12 @@ const Achievements = () => {
   return (
     <div className='bg-[#172131] border-2 border-blue-500/30 rounded-xl flex flex-col p-6 mt-7 flex-1 gap-8'>
       <div className='flex gap-2 '>
-        <Award className='text-white' text-xl />
+        <Award className='text-white ' />
         <h1 className='text-white text-xl '>Achievements (0/50 Unlocked)</h1>
       </div>
       <div className='grid md:grid-cols-4 grid-cols-1 gap-4'>
-         {block.map(ele => (
-        ele
+         {block.map(  (ele) => (
+          ele
       ))}
       </div>
     </div>
