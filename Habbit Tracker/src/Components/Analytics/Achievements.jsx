@@ -177,7 +177,7 @@ const Achievements = () => {
       },
   ]
 
-  console.log(DataArrObj[1].flag);
+  // console.log(DataArrObj[1].flag);
 
   const block = [];
   // console.log(block[0]);
@@ -203,8 +203,10 @@ const Achievements = () => {
         <h1 className='text-white text-xl '>Achievements (0/50 Unlocked)</h1>
       </div>
       <div className='grid md:grid-cols-4 grid-cols-1 gap-4'>
-         {block.map(  (ele) => (
-          ele
+         {block.map(  (ele,index) => (
+          <React.Fragment key={index}>
+          {ele}
+          </React.Fragment>
       ))}
       </div>
     </div>

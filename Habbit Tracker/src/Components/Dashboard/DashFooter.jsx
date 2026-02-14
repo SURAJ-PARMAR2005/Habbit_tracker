@@ -92,7 +92,11 @@ const DashFooter = () => {
           <div className='flex md:flex-row flex-col  gap-2 m-3'>
             {study &&  <div className='flex items-center text-white'>
               <p>+{exStudyCount} Hour Study</p>
-              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setStudy(false);
+              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center cursor-pointer" onClick={() => {
+                 setExStudyCount(prev => prev-1);
+                if(exStudyCount == 1){
+                  setStudy(false);
+                   }
                 setCount(prev => prev-1);
                   updateProgress({
                     xpDelta: -200,
@@ -105,7 +109,11 @@ const DashFooter = () => {
             </div>}
             {mali &&  <div className='flex items-center text-white'>
               <p>+{exMalaCount} Mala</p>
-              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setMali(false);
+              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center cursor-pointer" onClick={() => {
+                setExMalaCount(prev => prev-1);
+                if(exMalaCount == 1){
+                  setMali(false);
+                   }
                 setCount(prev => prev-1);
                   updateProgress({
                     xpDelta: -200,
@@ -119,7 +127,11 @@ const DashFooter = () => {
             </div>}
             {gym &&  <div className='flex items-center text-white'>
               <p>+{exGymCount} Gym/Exercise</p>
-              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setGym(false);
+              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center cursor-pointer" onClick={() => {
+                setExGymCount(prev => prev-1);
+                if(exGymCount == 1){
+                  setGym(false);
+                   }
                 setCount(prev => prev-1);
                   updateProgress({
                     xpDelta: -200,
@@ -133,7 +145,11 @@ const DashFooter = () => {
             {
               junk &&  <div className='flex items-center text-white'>
               <p>+{exJunkCount } No JunkFood</p>
-              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center" onClick={() => {setJunk(false);
+              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center cursor-pointer" onClick={() => {
+                setExJunkCount(prev => prev-1);
+                if(exJunkCount == 1){
+                  setJunk(false);
+                   }
                 setCount(prev => prev-1);
                   updateProgress({
                     xpDelta: -200,

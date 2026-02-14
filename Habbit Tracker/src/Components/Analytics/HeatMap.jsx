@@ -56,8 +56,10 @@ const HeatMap = () => {
       {/* Progress displayer */}
       <div className="grid md:gap-2 gap-1.5 md:grid-cols-52  grid-cols-15 ">
         {arr.map((ele, index) => (
-          ele
-        ))}
+  <React.Fragment key={index}>
+    {ele}
+  </React.Fragment>
+))}
       </div>
 
       {/* footer of this subcomponent */}
