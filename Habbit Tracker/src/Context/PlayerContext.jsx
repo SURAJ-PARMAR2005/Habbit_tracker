@@ -53,7 +53,7 @@ export const PlayerProvider = ({children}) => {
         if(currStreak>0){
           setLongestStreak(prev => prev + 1)
         }
-    // console.log(!flag);
+    // console.log(!flag);   
 
     // stats
     setStrength((prev) => Math.max(prev + strengthDelta, 0));
