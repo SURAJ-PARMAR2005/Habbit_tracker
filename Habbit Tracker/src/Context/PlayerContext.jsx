@@ -52,7 +52,7 @@ export const PlayerProvider = ({children}) => {
         }
         if(currStreak>0){
           setLongestStreak(prev => prev + 1)
-        }
+        }    
     // console.log(!flag);   
 
     // stats
