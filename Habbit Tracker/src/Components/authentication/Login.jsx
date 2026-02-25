@@ -6,13 +6,13 @@ const Login = () => {
   const {isLogin,setIsLogin,setIsRegistered} = usePlayer();
   return (
     //overlay
-    <div className={`fixed inset-0 backdrop-blur-md flex items-center justify-center h-screen w-full z-50 ${isLogin?"block":"hidden"} `}>
+    <div className={`fixed inset-0 backdrop-blur-md flex overflow-y-auto justify-center h-screen w-full z-50 ${isLogin?"flex":"hidden"} `}>
 
       {/*modal box */}
 
-      <div className="h-full w-97.5 bg-[#2F2A27] rounded mt-8 mb-8 flex flex-col gap-3 px-6 ">
+      <div className="h-170 w-97.5 bg-black rounded py-8  flex flex-col gap-3 px-6 ">
         <div className="h-1 w-full flex items-end-safe justify-end ">
-          <X className="mt-1 font-bold m-1 cursor-pointer hover:bg-gray-400 bg-[#00F2FF]   " onClick={() => setIsLogin(false)} />
+          <X className="text-[#00F2FF] hover:bg-gray-100 hover:text-black cursor-pointer  " onClick={() => setIsLogin(false)} />
         </div>
         {/* heading */}
         <div className="flex flex-col gap-3 items-center justify-center px-3 pt-7 ">
@@ -52,14 +52,14 @@ const Login = () => {
             <p className="underline text-[#00f2ff77] text-sm cursor-pointer" onClick={() => {setIsRegistered(true);
             setIsLogin(false);
 
-            }}>Already a Player ?</p>
+            }}>NEVER BEEN HERE BEFORE ?</p>
           </form>
 
           <button
-            type="submit"
+            type='submit'
             className="p-3 bg-[#00F2FF] rounded  cursor-pointer "
           >
-            <h2 className="text-black font-bold">Enter the Dungen</h2>
+            <p className="text-black font-bold">Enter the Dungen</p>
           </button>
 
           <div className="h-px mt-2.5 w-full bg-[#00f2ff25]"></div>
