@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import { X } from 'lucide-react';
 const DashNav = () => {
-  const {level}  = usePlayer();
+  const {level,setIsLogin}  = usePlayer();
   const [now, setNow] = useState(new Date());
   const [nav,setNav] = useState(false);
 
@@ -33,7 +33,7 @@ const DashNav = () => {
     <div className='flex items-center justify-between gap-[20vh]'>
       {/* level wali div */}
         <div className='flex gap-3 justify-center items-center mt-3 ml-7'>
-           <span>👤</span>
+           <span onClick={() => setIsLogin(true)} className='cursor-pointer' >👤</span>
             <div className='flex flex-col'>
                 <h2 className='uppercase text-[#21D8F8] text-sm font-semibold tracking-wider' style={{fontFamily:'Orbitron'}} >Awakened Hunter</h2>
                 <h1 className='text-[#E8E6E3] size-3.5 whitespace-nowrap font-bold' style={{fontFamily:'Orbitron'}} >LEVEL {level}</h1>
