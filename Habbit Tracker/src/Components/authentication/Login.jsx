@@ -1,9 +1,38 @@
-import React from "react";
+import {useState} from "react";
 import { usePlayer } from "../../Context/usePlayer";
 import { X } from "lucide-react";
-
+import axios  from "axios"
 const Login = () => {
-  const {isLogin,setIsLogin,setIsRegistered} = usePlayer();
+  const {isLogin,setIsLogin,setIsRegistered,setValidUser} = usePlayer();
+  const [formData,setFormData] = useState({
+    username : "",
+    password: "",
+  })
+
+  const handleChanges = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name] : e.target.value,
+    })
+  }
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+        await axios.post("http://localhost:3000/api/auth/login",{
+          username:formData.username,
+          password : formData.password,
+        },{ withCredentials: true });
+
+        alert("Welcome Back Player!");
+        setIsLogin(false);
+        setValidUser(true);   
+    } catch (error) {
+      console.log(error);
+      alert("error occured while logginin in!");
+    }
+  }
+
   return (
     //overlay
     <div className={`fixed inset-0 backdrop-blur-md flex overflow-y-auto justify-center h-screen w-full z-50 ${isLogin?"flex":"hidden"} `}>
@@ -26,14 +55,17 @@ const Login = () => {
         {/* form */}
 
         <div className="flex flex-col gap-6 px-8 pt-8 pb-[23.25px] border-[#00d1ff] border rounded shadow shadow-blue-300">
-          <form action="submit" className="flex flex-col gap-3">
+          <form onSubmit={submitHandler} className="flex flex-col gap-3">
             <div className="flex flex-col gap-2.5 ">
               <h2 className="text-[#00F2FF]">Player Id</h2>
 
               <input
                 type="text"
+                name="username" 
+                value={formData.username}
+                onChange={handleChanges}
                 placeholder="S-RANK HUNTER"
-                className="border p-3 rounded border-[#00d1ff]"
+                className="border p-3 rounded border-[#00d1ff] text-gray-400"
                 required
               />
             </div>
@@ -43,8 +75,11 @@ const Login = () => {
 
               <input
                 type="password"
+                name="password" 
+                value={formData.password}
+                onChange={handleChanges}
                 placeholder="********"
-                className="border p-3 rounded border-[#00d1ff]"
+                className="border p-3 rounded border-[#00d1ff] text-gray-400"
                 required
               />
             </div>
@@ -53,7 +88,6 @@ const Login = () => {
             setIsLogin(false);
 
             }}>NEVER BEEN HERE BEFORE ?</p>
-          </form>
 
           <button
             type='submit'
@@ -61,6 +95,8 @@ const Login = () => {
           >
             <p className="text-black font-bold">Enter the Dungen</p>
           </button>
+          </form>
+
 
           <div className="h-px mt-2.5 w-full bg-[#00f2ff25]"></div>
            <div className="flex items-center justify-between">

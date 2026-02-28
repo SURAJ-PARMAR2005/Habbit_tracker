@@ -1,3 +1,4 @@
+import { UserRoundSearch } from "lucide-react";
 import {  createContext, useState } from "react";
 
 
@@ -29,8 +30,9 @@ export const PlayerProvider = ({children}) => {
   const [exMalaCount,setExMalaCount] = useState(0);
   const [exGymCount,setExGymCount] = useState(0);
   const [exJunkCount,setExJunkCount] = useState(0);
-  const [isLogin,setIsLogin] = useState(false);
+  const [isLogin,setIsLogin] = useState(true);
   const [isRegistered,setIsRegistered] = useState(false);
+  const [validUser,setValidUser] = useState(false);
 
   const updateProgress = ({
     xpDelta = 0,
@@ -103,7 +105,8 @@ export const PlayerProvider = ({children}) => {
                 exGymCount,setExGymCount,
                 exJunkCount,setExJunkCount,
                 isLogin,setIsLogin,
-                isRegistered,setIsRegistered
+                isRegistered,setIsRegistered,
+                validUser,setValidUser
       }}
     >
       {children}
