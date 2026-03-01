@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import { X } from 'lucide-react';
 import { asset } from '../../assets/assets';
+import axios from 'axios';
 const DashNav = () => {
-  const {level,setIsLogin,isLogin,isRegistered,validUser}  = usePlayer();
+  const {level,setIsLogin,setValidUser,validUser}  = usePlayer();
   const [now, setNow] = useState(new Date());
   const [nav,setNav] = useState(false);
+  const [logout,setLogOut] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -27,16 +29,30 @@ const DashNav = () => {
         second: "2-digit",
         hour12: true,
     })
-
+const handleLogOut = async () => {
+  try {
+  axios.post("http://localhost:3000/api/auth/logout");
+    setValidUser(false);
+    setLogOut(false);
+  } catch (error) {
+    console.log(error);
+  }
+  }
 
   return (
     <div className='flex flex-col items-start'>
     <div className='flex items-center justify-between gap-[15vh]'>
       {/* level wali div */}
-        <div className='flex gap-3 justify-center items-center mt-3 ml-7'>
-          {(validUser)? <img className='h-10 w-10 rounded-full mt-3' src={asset.profilePic} alt="DP" /> :
+        <div className='flex gap-3 justify-center items-center mt-3 ml-7 relative'>
+          {(validUser)? <img className='h-10 w-10 rounded-full mt-3' src={asset.profilePic} alt="DP" onClick={() => setLogOut(!logout)} /> :
            <div className='flex flex-1 items-center justify-center rounded-full p-2 bg-[#00F2FF] cursor-pointer border border-blue-400 text-black' onClick={() => setIsLogin(true)} >Login</div> 
           }
+          <div className={`h-30 bg-black w-30 p-4  items-center flex-col justify-between border border-blue-400 z-50 absolute left-0 mt-55  ${logout ? "flex" : "hidden"} `}>
+            <X className='ml-22  h-6 w-6 text-white bg-gray-400 cursor-pointer' onClick={() => setLogOut(false)} />
+            <h1 className='text-white w-full p-3  rounded-xl cursor-pointer bg-gray-500 hover:bg-gray-500 '  onClick={() => {
+              handleLogOut();
+            }} >Logout</h1>
+          </div>
             <div className='flex flex-col'>
                 <h2 className='uppercase text-[#21D8F8] text-sm font-semibold tracking-wider' style={{fontFamily:'Orbitron'}} >Awakened Hunter</h2>
                 <h1 className='text-[#E8E6E3] size-3.5 whitespace-nowrap font-bold' style={{fontFamily:'Orbitron'}} >LEVEL {level}</h1>

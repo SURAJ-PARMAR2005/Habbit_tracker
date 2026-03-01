@@ -25,7 +25,7 @@ const submitHandler = async (e) => {
     email: formData.email,
     password: formData.password
    },{ withCredentials: true });
-   alert("Player Awakened successfully!");  
+//    alert("Player Awakened successfully!");  
    setIsRegistered(false);
    setValidUser(true);
     } catch (error) {

@@ -1,6 +1,6 @@
 import { UserRoundSearch } from "lucide-react";
-import {  createContext, useState } from "react";
-
+import {  createContext, useEffect, useState } from "react";
+import axios from "axios";
 
 export const PlayerContext = createContext(null);
 
@@ -33,6 +33,36 @@ export const PlayerProvider = ({children}) => {
   const [isLogin,setIsLogin] = useState(true);
   const [isRegistered,setIsRegistered] = useState(false);
   const [validUser,setValidUser] = useState(false);
+  const [authLoading,setAuthLoading] = useState(true);
+
+  const checkAuth = async() => {
+    try {
+      const res = await axios.get("http://localhost:3000/api/auth/me");
+
+      setValidUser(true);
+      setIsLogin(false);
+      setIsRegistered(false);
+
+    setXp(res.data.xp);
+    setXp(res.data.xp);
+    setLevel(res.data.level);
+    setStrength(res.data.stats.strength);
+    setWisdom(res.data.stats.wisdom);
+    setIntelligence(res.data.stats.intelligence);
+
+
+    } catch (error) {
+      console.log(error);
+      setValidUser(false);
+    }
+    finally{
+      setAuthLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    checkAuth();
+  },[])
 
   const updateProgress = ({
     xpDelta = 0,
@@ -77,6 +107,10 @@ export const PlayerProvider = ({children}) => {
       setXp(Math.max(newXp, 0));
     }
   };
+
+  if (authLoading) {
+  return <div className="flex items-center justify-center bg-black text-blue-300 h-screen w-screen">Loading...</div>;
+}
     return(
     <PlayerContext.Provider
       value={{

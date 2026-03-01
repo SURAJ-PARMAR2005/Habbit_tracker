@@ -24,7 +24,7 @@ const Login = () => {
           password : formData.password,
         },{ withCredentials: true });
 
-        alert("Welcome Back Player!");
+        // alert("Welcome Back Player!");
         setIsLogin(false);
         setValidUser(true);   
     } catch (error) {
