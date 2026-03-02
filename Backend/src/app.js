@@ -1,5 +1,6 @@
 const express = require("express");
-const authRoutes = require("./routes/auth.routes")
+const authRoutes = require("./routes/auth.routes");
+const dailyRoutes = require("./routes/daily.routes");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const app = express();
@@ -12,6 +13,8 @@ app.use(
     credentials: true,
   })
 );
+
+app.use("/api/daily",dailyRoutes);
 
 app.use("/api/auth",authRoutes);
 

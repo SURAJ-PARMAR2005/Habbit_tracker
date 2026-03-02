@@ -27,6 +27,14 @@ const userSchema = new mongoose.Schema({
         wisdom : {type: Number , default : 0, },
         intelligence : {type: Number , default : 10, },
     }, 
+    longestStreak :  {
+        type : Number,
+        default : 1,
+    },
+    currStreak : {
+        type : Number,
+        default : 1,
+    }
 },{timestamps:true});
 
 const userModel = mongoose.model("user",userSchema);
