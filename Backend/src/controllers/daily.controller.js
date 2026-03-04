@@ -36,4 +36,31 @@ async function getDailyData(req,res) {
    
 }
 
-module.exports = {getDailyData}
+async function updateDailyData(req,res){
+    const userId = req.userId;
+    const {data} = req.body;
+    try {
+        const user = await dailyModel.findOneAndUpdate({_id: userId},
+            {quest:data.quest,
+            extra:data.extra,
+            taskCompleted:data.taskCompleted,
+            totalXpEarnedToday:data.totalXpEarnedToday,
+            }
+        )
+
+        if(user){
+          return res.status(201).json({
+                message: "Data Updated successfully",
+                user,
+            })
+        }
+        
+    } catch (error) {
+        console.log(error);
+        return res.status(401).json({
+            message:  "server error",
+        })
+    }
+}
+
+module.exports = {getDailyData,updateDailyData}
