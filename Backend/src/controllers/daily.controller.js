@@ -42,7 +42,7 @@ async function updateDailyData(req,res){
     const {type,name} = req.body;
     const today = getTodayDate();
 
-    const progress = await dailyModel.findOne({
+    let progress = await dailyModel.findOne({
         userId,
         date: today,
     })
@@ -98,24 +98,23 @@ async function updateDailyData(req,res){
     
 
     user.xp += xpReward;
-    progress.totalXpEarnedToday += xpReward;
+    progress. totalXpEarnedToday += xpReward;
 
     if(StatUpdate.strength) {
-        user.stats[strength] += StatUpdate.strength;
+        user.strength += StatUpdate.strength;
     }
     if(StatUpdate.intelligence){
-        user.stats[intelligence] += StatUpdate.intelligence;
+        user.intelligence += StatUpdate.intelligence;
     }
     if(StatUpdate.wisdom){
-        user.stats[wisdom] += StatUpdate.wisdom;
+        user.wisdom += StatUpdate.wisdom;
     }
     
-     const LEVEL_THRESHOLD = 1000;
+    const LEVEL_THRESHOLD = 1000;
 
     if (user.xp >= LEVEL_THRESHOLD) {
       user.level += 1;
       user.xp = user.xp % LEVEL_THRESHOLD;
-      LEVEL_THRESHOLD += 500;
     }
 
     // 8️⃣ SAVE

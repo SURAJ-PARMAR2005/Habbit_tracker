@@ -14,12 +14,6 @@ const DashFooter = () => {
                 exGymCount,setExGymCount,
                 exJunkCount,setExJunkCount,
   } = usePlayer(); 
-  // const [count,setCount] = useState(0);
-  // const [study,setStudy] = useState(false);
-  // const [junk,setJunk] = useState(false);
-  // const [gym,setGym] = useState(false);
-  // const[mali,setMali] = useState(false);
-
   return (
     <div className='mt-3 mx-4 flex flex-col gap-6 p-3 '>
       <div className='flex flex-col gap-4 w-full'>
@@ -49,12 +43,7 @@ const DashFooter = () => {
               <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setMali(true);
               setExMalaCount(prev => prev+1);
-            updateProgress({
-                    xpDelta: 200,
-                    taskDelta: 1,
-                    wisdomDelta: 2,
-                  });
-
+           
               }
               } >
               <i className='text-2xl text-white'>+</i>
@@ -63,11 +52,6 @@ const DashFooter = () => {
              <div className='flex gap-2  items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setGym(true);
               setExGymCount(prev => prev+1);
-            updateProgress({
-                    xpDelta: 200,
-                    taskDelta: 1,
-                    strengthDelta: 2,
-                  });
 
              }} >
               <i className='text-2xl text-white'>+</i>
@@ -75,11 +59,6 @@ const DashFooter = () => {
             </div>  <div className='flex gap-2 items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setJunk(true);
               setExJunkCount(prev => prev+1);
-            updateProgress({
-                    xpDelta: 200,
-                    taskDelta: 1,
-                    strengthDelta: 2,
-                  });
             }} >
               <i className='text-2xl text-white'>+</i>
               <h2 className='text-white font-bold'>+1 No Junk Food</h2>
@@ -98,11 +77,6 @@ const DashFooter = () => {
                   setStudy(false);
                    }
                 setCount(prev => prev-1);
-                  updateProgress({
-                    xpDelta: -200,
-                    taskDelta: -1,
-                    strengthDelta: -2,
-                  });
               }}>
                    <X />
               </button>
@@ -115,11 +89,7 @@ const DashFooter = () => {
                   setMali(false);
                    }
                 setCount(prev => prev-1);
-                  updateProgress({
-                    xpDelta: -200,
-                    taskDelta: -1,
-                    wisdomDelta: -2,
-                  });
+
               }
               }>
                    <X />
@@ -133,11 +103,7 @@ const DashFooter = () => {
                   setGym(false);
                    }
                 setCount(prev => prev-1);
-                  updateProgress({
-                    xpDelta: -200,
-                    taskDelta: -1,
-                    strengthDelta: -2,
-                  });
+            
               }}>
                    <X />
               </button>
@@ -151,11 +117,7 @@ const DashFooter = () => {
                   setJunk(false);
                    }
                 setCount(prev => prev-1);
-                  updateProgress({
-                    xpDelta: -200,
-                    taskDelta: -1,
-                    strengthDelta: -2,
-                  });
+                 
               }}>
                    <X />
               </button>

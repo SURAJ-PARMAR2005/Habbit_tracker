@@ -1,12 +1,15 @@
 import React from "react";
 import { Dumbbell } from "lucide-react";
 import { Book } from "lucide-react";
-import { Heart } from "lucide-react";
+import { Heart } from "lucide-react";                                                                                                                      
+import axios from "axios"
+
 // import { useState } from "react";
 import { usePlayer } from "../../Context/usePlayer";
 const DashQuest = () => {
   const {
-    updateProgress,
+    // updateProgress,
+    setXp,
     goal,
     setGoal,
     mala,
@@ -18,6 +21,27 @@ const DashQuest = () => {
     Spiritual,
     SetSpritual,
   } = usePlayer();
+
+
+  const handleChangeQuest = async (name) => {
+    try{
+      const res = await axios.post("http://localhost:3000/api/daily/complete-quest",{
+        type : "quest",
+        name :  name,
+      },
+    {withCredential:true})
+
+    if(name == "gym") setPhysical(true);
+    if(name == "study") setknowledge(true);
+    if(name  == "meditation") SetSpritual(true);
+    setXp
+    console.log(res);
+    }
+    catch(err){
+      console.log(err);
+    }
+
+  }
 
   return (
     <div className="flex flex-col gap-6 text-white pl-6">
@@ -47,19 +71,20 @@ const DashQuest = () => {
               type="checkbox"
               checked={physical}
               onChange={(e) => {
+                handleChangeQuest("gym")
                 setPhysical(e.target.checked);
-                if (physical) {
-                  updateProgress({
-                    xpDelta: -200,
-                    taskDelta: -1,
-                    strengthDelta: -2,
-                  });
-                } else
-                  updateProgress({
-                    xpDelta: 200,
-                    taskDelta: 1,
-                    strengthDelta: 2,
-                  });
+                // if (physical) {
+                //   // updateProgress({
+                //   //   xpDelta: -200,
+                //   //   taskDelta: -1,
+                //   //   strengthDelta: -2,
+                //   // });
+                // } else
+                //   updateProgress({
+                //     xpDelta: 200,
+                //     taskDelta: 1,
+                //     strengthDelta: 2,
+                //   });
               }}
             />
           </div>
@@ -91,19 +116,20 @@ const DashQuest = () => {
               type="checkbox"
               checked={Knowledge}
               onChange={(e) => {
+                handleChangeQuest("study")
                 setknowledge(e.target.checked);
-                if (Knowledge) {
-                  updateProgress({
-                    xpDelta: -(goal * 100),
-                    taskDelta: -1,
-                    intelligenceDelta: -2,
-                  });
-                } 
-                 else updateProgress({
-                    xpDelta: goal * 100,
-                    taskDelta: 1,
-                    intelligenceDelta: 2,
-                  });
+                // if (Knowledge) {
+                //   updateProgress({
+                //     xpDelta: -(goal * 100),
+                //     taskDelta: -1,
+                //     intelligenceDelta: -2,
+                //   });
+                // } 
+                //  else updateProgress({
+                //     xpDelta: goal * 100,
+                //     taskDelta: 1,
+                //     intelligenceDelta: 2,
+                //   });
               }}
             />
           </div>
@@ -159,19 +185,20 @@ const DashQuest = () => {
               type="checkbox"
               checked={Spiritual}
               onChange={(e) => {
+                handleChangeQuest("meditation");
                 SetSpritual(e.target.checked);
-                if (Spiritual) {
-                  updateProgress({
-                    xpDelta: -(mala * 100),
-                    taskDelta: -1,
-                   wisdomDelta: -mala,
-                  });
-                } else
-                  updateProgress({
-                    xpDelta: mala * 100,
-                    taskDelta: 1,
-                    wisdomDelta: mala,
-                  });
+                // if (Spiritual) {
+                //   updateProgress({
+                //     xpDelta: -(mala * 100),
+                //     taskDelta: -1,
+                //    wisdomDelta: -mala,
+                //   });
+                // } else
+                //   updateProgress({
+                //     xpDelta: mala * 100,
+                //     taskDelta: 1,
+                //     wisdomDelta: mala,
+                //   });
               }}
             />
           </div>

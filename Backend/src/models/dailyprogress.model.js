@@ -31,7 +31,7 @@ const dailySchema = new mongoose.Schema({
     },
     totalXpEarnedToday : {
         type : Number,
-        defaut : 0,
+        default : 0,
     }
 }, {timestamps: true});
 
