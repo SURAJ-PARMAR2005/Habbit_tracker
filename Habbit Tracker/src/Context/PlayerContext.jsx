@@ -73,6 +73,10 @@ export const PlayerProvider = ({children}) => {
     setPhysical(res.data.data.quest.gym);
     setknowledge(res.data.data.quest.study);
     SetSpritual(res.data.data.quest.meditation);
+    const x = res.data.taskCompleted;
+    // if(x>=2) setFlag(true);
+      setFlag((prev) => !prev );
+  
     } catch (error) {
       console.log(error);
     }
@@ -83,49 +87,49 @@ export const PlayerProvider = ({children}) => {
   },[]);
 
 
-  // const updateProgress = ({
-  //   xpDelta = 0,
-  //   taskDelta = 0,
-  //   strengthDelta = 0,
-  //   wisdomDelta = 0,
-  //   intelligenceDelta = 0,
-  // }) => {
-  //   // tasks
-  //   if (taskDelta !== 0) {
-  //     setCompletTask((prev) => Math.max(prev + taskDelta, 0));
-  //   }
-  //   if (completedTask >= toalTask-1) {
-  //     setFlag(true);
-  //     SetTotalTask(prev => prev + 3);
-  //   }
-  //   // console.log(completedTask)
-  //       if(completedTask <2) setFlag(false);
-  //       if(completedTask == 2) {
-  //         setCurrStreak(1);
-  //       }
-  //       if(currStreak>0){
-  //         setLongestStreak(prev => prev + 1)
-  //       }    
-  //   // console.log(!flag);   
+  const updateProgress = ({
+    xpDelta = 0,
+    taskDelta = 0,
+    strengthDelta = 0,
+    wisdomDelta = 0,
+    intelligenceDelta = 0,
+  }) => {
+    // tasks
+    if (taskDelta !== 0) {
+      setCompletTask((prev) => Math.max(prev + taskDelta, 0));
+    }
+    if (completedTask >= toalTask-1) {
+      setFlag(true);
+      SetTotalTask(prev => prev + 3);
+    }
+    // console.log(completedTask)
+        if(completedTask <2) setFlag(false);
+        if(completedTask == 2) {
+          setCurrStreak(1);
+        }
+        if(currStreak>0){
+          setLongestStreak(prev => prev + 1)
+        }    
+    // console.log(!flag);   
 
-  //   // stats
-  //   setStrength((prev) => Math.max(prev + strengthDelta, 0));
-  //   setWisdom((prev) => Math.max(prev + wisdomDelta, 0));
-  //   setIntelligence((prev) => Math.max(prev + intelligenceDelta, 0));
+    // stats
+    setStrength((prev) => Math.max(prev + strengthDelta, 0));
+    setWisdom((prev) => Math.max(prev + wisdomDelta, 0));
+    setIntelligence((prev) => Math.max(prev + intelligenceDelta, 0));
 
-  //   // xp + level logic
-  //   // xp + level logic
-  //   let newXp = xp + xpDelta;
+    // xp + level logic
+    // xp + level logic
+    let newXp = xp + xpDelta;
 
-  //   if (newXp >= 1000) {
-  //     const levelUps = Math.floor(newXp / 1000);
-  //     setLevel((prev) => prev + levelUps);
-  //     SetTotalXp((prev) => prev + 500);
-  //     setXp(newXp % 1000);
-  //   } else {
-  //     setXp(Math.max(newXp, 0));
-  //   }
-  // };
+    if (newXp >= 1000) {
+      const levelUps = Math.floor(newXp / 1000);
+      setLevel((prev) => prev + levelUps);
+      SetTotalXp((prev) => prev + 500);
+      setXp(newXp % 1000);
+    } else {
+      setXp(Math.max(newXp, 0));
+    }
+  };
 
   if (authLoading) {
   return <div className="flex items-center justify-center bg-black text-blue-300 h-screen w-screen">Loading...</div>;
@@ -139,7 +143,7 @@ export const PlayerProvider = ({children}) => {
         wisdom,intelligence,
         level,
         flag,
-        // updateProgress,
+        updateProgress,
                 goal,setGoal,
                 mala,setMala,
                 physical,setPhysical,

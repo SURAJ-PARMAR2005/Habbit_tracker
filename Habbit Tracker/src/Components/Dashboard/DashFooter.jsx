@@ -1,6 +1,7 @@
 // import React, { useState } from 'react'
 import { X } from 'lucide-react';
 import {usePlayer} from '../../Context/usePlayer';
+import axios from 'axios';
 const DashFooter = () => {
   const {flag,
       count,setCount,
@@ -8,12 +9,28 @@ const DashFooter = () => {
                 junk,setJunk,
                 gym,setGym,
                 mali,setMali,
-                updateProgress,
+                // updateProgress,
                  exStudyCount,setExStudyCount,
                 exMalaCount,setExMalaCount,
                 exGymCount,setExGymCount,
                 exJunkCount,setExJunkCount,
   } = usePlayer(); 
+
+  const handleChangeExtra = async(name) => {
+      try{
+          await axios.post("http://localhost:3000/api/daily/complete-quest",{
+            type: "extra",
+            name:name,
+          },
+          {withCredentials:true}
+        )
+      }
+      catch(error){
+        console.log(error);
+      }
+  }
+
+
   return (
     <div className='mt-3 mx-4 flex flex-col gap-6 p-3 '>
       <div className='flex flex-col gap-4 w-full'>
@@ -30,11 +47,12 @@ const DashFooter = () => {
             <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl   '   onClick={() => {setCount(prev => prev+1);
             setStudy(true);
             setExStudyCount(prev => prev+1);
-            updateProgress({
-                    xpDelta: 200,
-                    taskDelta: 1,
-                    intelligenceDelta: 2,
-                  });
+            handleChangeExtra("extraStudy");
+            // updateProgress({
+            //         xpDelta: 200,
+            //         taskDelta: 1,
+            //         intelligenceDelta: 2,
+            //       });
             }
           }  >
               <i className='text-2xl text-white'>+</i>
@@ -43,7 +61,8 @@ const DashFooter = () => {
               <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setMali(true);
               setExMalaCount(prev => prev+1);
-           
+            handleChangeExtra("extraMala");
+                
               }
               } >
               <i className='text-2xl text-white'>+</i>
@@ -52,6 +71,8 @@ const DashFooter = () => {
              <div className='flex gap-2  items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setGym(true);
               setExGymCount(prev => prev+1);
+            handleChangeExtra("extraExercise");
+
 
              }} >
               <i className='text-2xl text-white'>+</i>
@@ -59,6 +80,7 @@ const DashFooter = () => {
             </div>  <div className='flex gap-2 items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setJunk(true);
               setExJunkCount(prev => prev+1);
+            handleChangeExtra("NoJunk");
             }} >
               <i className='text-2xl text-white'>+</i>
               <h2 className='text-white font-bold'>+1 No Junk Food</h2>
