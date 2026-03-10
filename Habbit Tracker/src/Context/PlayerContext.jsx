@@ -73,9 +73,23 @@ export const PlayerProvider = ({children}) => {
     setPhysical(res.data.data.quest.gym);
     setknowledge(res.data.data.quest.study);
     SetSpritual(res.data.data.quest.meditation);
-    const x = res.data.taskCompleted;
-    // if(x>=2) setFlag(true);
-      setFlag((prev) => !prev );
+    const x = res.data.data.taskCompleted;
+    const Xp = res.data.data.totalXpEarnedToday;
+    setXp(Xp);
+    setCompletTask(x);
+    if(x>2) setFlag(true)
+    const countExtraStudy = res.data.data.extra.extraStudy;
+    const countExtraMala = res.data.data.extra.extraMala;
+    const countExtraExercise = res.data.data.extra.extraExercise;
+    const countNoJunk = res.data.data.extra.NoJunk;
+    setExStudyCount(countExtraStudy);
+    setExMalaCount(countExtraMala);
+    setExGymCount(countExtraExercise);
+    setExJunkCount(countNoJunk);
+
+    if(countExtraStudy > 0 ||  countExtraMala>0 || countExtraExercise>0 || countNoJunk>0){
+      setCount(true);
+    }
   
     } catch (error) {
       console.log(error);
@@ -163,7 +177,8 @@ export const PlayerProvider = ({children}) => {
                 exJunkCount,setExJunkCount,
                 isLogin,setIsLogin,
                 isRegistered,setIsRegistered,
-                validUser,setValidUser
+                validUser,setValidUser,
+                getUpdatedData
       }}
     >
       {children}

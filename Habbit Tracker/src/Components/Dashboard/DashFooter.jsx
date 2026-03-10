@@ -14,6 +14,8 @@ const DashFooter = () => {
                 exMalaCount,setExMalaCount,
                 exGymCount,setExGymCount,
                 exJunkCount,setExJunkCount,
+    getUpdatedData,
+
   } = usePlayer(); 
 
   const handleChangeExtra = async(name) => {
@@ -24,6 +26,7 @@ const DashFooter = () => {
           },
           {withCredentials:true}
         )
+    getUpdatedData();
       }
       catch(error){
         console.log(error);
