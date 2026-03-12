@@ -26,7 +26,7 @@ const DashFooter = () => {
           },
           {withCredentials:true}
         )
-    getUpdatedData();
+    await getUpdatedData();
       }
       catch(error){
         console.log(error);
@@ -49,7 +49,7 @@ const DashFooter = () => {
           <div className='m-2 flex md:flex-row flex-col gap-2 justify-items-start '>
             <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl   '   onClick={() => {setCount(prev => prev+1);
             setStudy(true);
-            setExStudyCount(prev => prev+1);
+            // setExStudyCount(prev => prev+1);
             handleChangeExtra("extraStudy");
             // updateProgress({
             //         xpDelta: 200,
@@ -63,7 +63,7 @@ const DashFooter = () => {
             </div>
               <div className='flex gap-2 items-center  bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setMali(true);
-              setExMalaCount(prev => prev+1);
+              // setExMalaCount(prev => prev+1);
             handleChangeExtra("extraMala");
                 
               }
@@ -73,7 +73,7 @@ const DashFooter = () => {
             </div> 
              <div className='flex gap-2  items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setGym(true);
-              setExGymCount(prev => prev+1);
+              // setExGymCount(prev => prev+1);
             handleChangeExtra("extraExercise");
 
 
@@ -82,7 +82,7 @@ const DashFooter = () => {
               <h2 className='text-white font-bold'>+1 Gym/Exercise</h2>
             </div>  <div className='flex gap-2 items-center bg-gray-600/30 cursor-pointer flex-1 rounded-xl  '   onClick={() => {setCount(prev => prev+1);
               setJunk(true);
-              setExJunkCount(prev => prev+1);
+              // setExJunkCount(prev => prev+1);
             handleChangeExtra("NoJunk");
             }} >
               <i className='text-2xl text-white'>+</i>

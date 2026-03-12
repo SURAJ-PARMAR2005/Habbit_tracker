@@ -100,14 +100,15 @@ async function updateDailyData(req,res){
     user.xp += xpReward;
     progress. totalXpEarnedToday += xpReward;
 
-    if(StatUpdate.strength) {
-        user.strength += StatUpdate.strength;
+    if(StatUpdate.strength){
+     user.stats.strength += StatUpdate.strength;
     }
+
     if(StatUpdate.intelligence){
-        user.intelligence += StatUpdate.intelligence;
+        user.stats.intelligence += StatUpdate.intelligence;
     }
     if(StatUpdate.wisdom){
-        user.wisdom += StatUpdate.wisdom;
+        user.stats.wisdom += StatUpdate.wisdom;
     }
     
     const LEVEL_THRESHOLD = 1000;
@@ -136,4 +137,30 @@ async function updateDailyData(req,res){
     }
 }
 
-module.exports = {getDailyData,updateDailyData}
+
+async function getPermData(req,res){
+    try {
+    const userId = req.userId;
+    const user = await userModel.findById(userId);
+    if(!user){
+        return res.status(401).json({
+            message: "Invalid Credential",
+        })
+    }
+    //means user exists
+    //i want curr streak and stasts 
+    return res.status(201).json({
+        message: "success",
+        user
+    })
+
+
+
+    } catch (error) {
+        console.log(error);
+        return res.status.json({
+            message: "server Error"
+        })
+    }    
+}
+module.exports = {getDailyData,updateDailyData,getPermData}

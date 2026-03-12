@@ -21,6 +21,7 @@ const DashQuest = () => {
     Spiritual,
     SetSpritual,
     getUpdatedData,
+    getPermData,
   } = usePlayer();
 
 
@@ -37,7 +38,8 @@ const DashQuest = () => {
     if(name  == "meditation") SetSpritual(true);
     setXp
     console.log(res);
-    getUpdatedData();
+    await getUpdatedData();
+    await getPermData();
     }
     catch(err){
       console.log(err);
