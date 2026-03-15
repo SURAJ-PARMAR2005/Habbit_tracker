@@ -103,7 +103,7 @@ const DashFooter = () => {
                    }
                 setCount(prev => prev-1);
               }}>
-                   <X />
+                   {/* <X /> */}
               </button>
             </div>}
             {mali &&  <div className='flex items-center text-white'>
@@ -117,7 +117,7 @@ const DashFooter = () => {
 
               }
               }>
-                   <X />
+                   {/* <X /> */}
               </button>
             </div>}
             {gym &&  <div className='flex items-center text-white'>
@@ -130,7 +130,7 @@ const DashFooter = () => {
                 setCount(prev => prev-1);
             
               }}>
-                   <X />
+                   {/* <X /> */}
               </button>
             </div>}
             {
@@ -144,7 +144,7 @@ const DashFooter = () => {
                 setCount(prev => prev-1);
                  
               }}>
-                   <X />
+                   {/* <X /> */}
               </button>
             </div>
             }

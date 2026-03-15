@@ -2,7 +2,8 @@
 @import "tailwindcss";
 
 body{
-    font-family:"Orbitron"
+    font-family:"Orbitron";
+    box-sizing : border-box;
     /* overflow-x: hidden;
     overflow-y: hidden; */
    

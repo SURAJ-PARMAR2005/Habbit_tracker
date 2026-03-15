@@ -163,4 +163,6 @@ async function getPermData(req,res){
         })
     }    
 }
+
+// 
 module.exports = {getDailyData,updateDailyData,getPermData}

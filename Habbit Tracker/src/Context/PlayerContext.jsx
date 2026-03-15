@@ -73,6 +73,12 @@ export const PlayerProvider = ({children}) => {
       const stren = res.data.user.stats.strength;
       const wis = res.data.user.stats.wisdom;
       const intel = res.data.user.stats.intelligence;
+      const lvl = res.data.user.level;
+      const currStreak = res.data.user.currStreak;
+      const longStreak = res.data.user.longestStreak;
+      setCurrStreak(currStreak);
+      setLongestStreak(longStreak)
+      setLevel(lvl);
 
       setWisdom(wis);
       setStrength(stren);
