@@ -96,7 +96,7 @@ const DashFooter = () => {
           <div className='flex md:flex-row flex-col  gap-2 m-3'>
             {study &&  <div className='flex items-center text-white'>
               <p>+{exStudyCount} Hour Study</p>
-              <button class="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center cursor-pointer" onClick={() => {
+              <button className="ml-1 hover:bg-emerald-700 rounded p-0.5 flex items-center justify-center cursor-pointer" onClick={() => {
                  setExStudyCount(prev => prev-1);
                 if(exStudyCount == 1){
                   setStudy(false);

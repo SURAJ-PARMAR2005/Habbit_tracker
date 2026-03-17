@@ -79,6 +79,7 @@ export const PlayerProvider = ({children}) => {
       setCurrStreak(currStreak);
       setLongestStreak(longStreak)
       setLevel(lvl);
+      setXp(res.data.user.xp);
 
       setWisdom(wis);
       setStrength(stren);

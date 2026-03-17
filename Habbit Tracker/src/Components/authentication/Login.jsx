@@ -3,7 +3,7 @@ import { usePlayer } from "../../Context/usePlayer";
 import { X } from "lucide-react";
 import axios  from "axios"
 const Login = () => {
-  const {isLogin,setIsLogin,setIsRegistered,setValidUser} = usePlayer();
+  const {isLogin,setIsLogin,setIsRegistered,setValidUser,getPermData} = usePlayer();
   const [formData,setFormData] = useState({
     username : "",
     password: "",
@@ -26,7 +26,8 @@ const Login = () => {
 
         // alert("Welcome Back Player!");
         setIsLogin(false);
-        setValidUser(true);   
+        setValidUser(true); 
+        await getPermData();  
     } catch (error) {
       console.log(error);
       alert("error occured while logginin in!");

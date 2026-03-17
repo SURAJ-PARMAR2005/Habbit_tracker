@@ -3,7 +3,7 @@ import {usePlayer} from "../../Context/usePlayer.jsx"
 import { X } from 'lucide-react';
 import axios from "axios";
 const Register = () => {
-const {isRegistered,setIsRegistered,setIsLogin,setValidUser} = usePlayer();
+const {isRegistered,setIsRegistered,setIsLogin,setValidUser,getPermData} = usePlayer();
 
 const [formData,setFormData] = useState({
     username : "",
@@ -28,6 +28,7 @@ const submitHandler = async (e) => {
 //    alert("Player Awakened successfully!");  
    setIsRegistered(false);
    setValidUser(true);
+   await getPermData();
     } catch (error) {
         console.log(error);
         alert("error occured while registering please try again");
