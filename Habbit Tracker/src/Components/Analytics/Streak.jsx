@@ -56,7 +56,7 @@ const {currStreak,longestStreak} = usePlayer();
             <h2 className='text-[#52AFFF] '>{currStreak}/30</h2>
             </div>
             <div className='h-2 w-full bg-[#121A2A] rounded  '>
-              <div className= {` bg-blue-500/30 h-full w-[${currStreak}%]`}></div>
+              <div className= {` bg-blue-500/30 h-full w-[${currStreak}/30px]`}></div>
             </div>
             <p className='text-[#766D61] text-sm'>30 days remaining</p>
           </div>
