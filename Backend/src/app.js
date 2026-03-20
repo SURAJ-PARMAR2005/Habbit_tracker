@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173", // your frontend port  frontend url ayega yha 
+    origin: "https://habbit-tracker-1-bmuo.onrender.com/", // your frontend port  frontend url ayega yha 
     credentials: true,
   })
 );
