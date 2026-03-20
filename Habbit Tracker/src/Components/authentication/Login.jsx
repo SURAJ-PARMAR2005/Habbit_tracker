@@ -19,7 +19,7 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-        await axios.post("http://localhost:3000/api/auth/login",{
+        await axios.post("https://habbit-tracker-5n2a.onrender.com/api/auth/login",{
           username:formData.username,
           password : formData.password,
         },{ withCredentials: true });

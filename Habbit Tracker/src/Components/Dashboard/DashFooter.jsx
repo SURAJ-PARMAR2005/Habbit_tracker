@@ -20,7 +20,7 @@ const DashFooter = () => {
 
   const handleChangeExtra = async(name) => {
       try{
-          await axios.post("http://localhost:3000/api/daily/complete-quest",{
+          await axios.post("https://habbit-tracker-5n2a.onrender.com/api/daily/complete-quest",{
             type: "extra",
             name:name,
           },

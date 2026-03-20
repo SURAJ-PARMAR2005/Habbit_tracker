@@ -12,7 +12,7 @@ const HeatMap = () => {
     const getHeatMapData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:3000/api/analytics/heatmap",
+          "https://habbit-tracker-5n2a.onrender.com/api/analytics/heatmap",
           {
             withCredentials: true,
           },

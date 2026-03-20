@@ -27,7 +27,7 @@ const DashQuest = () => {
 
   const handleChangeQuest = async (name) => {
     try{
-      const res = await axios.post("http://localhost:3000/api/daily/complete-quest",{
+      const res = await axios.post("https://habbit-tracker-5n2a.onrender.com/api/daily/complete-quest",{
         type : "quest",
         name :  name,
       },

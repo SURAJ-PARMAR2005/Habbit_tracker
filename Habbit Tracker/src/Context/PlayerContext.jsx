@@ -37,7 +37,7 @@ export const PlayerProvider = ({children}) => {
 
   const checkAuth = async() => {
     try {
-      const res = await axios.get("http://localhost:3000/api/auth/me");
+      const res = await axios.get("https://habbit-tracker-5n2a.onrender.com/api/auth/me");
 
       setValidUser(true);
       setIsLogin(false);
@@ -66,7 +66,7 @@ export const PlayerProvider = ({children}) => {
 
   const getPermData = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/daily/today-perm",{
+      const res = await axios.get("https://habbit-tracker-5n2a.onrender.com/api/daily/today-perm",{
         withCredential:true
       });
       const stren = res.data.user.stats.strength;
@@ -95,7 +95,7 @@ export const PlayerProvider = ({children}) => {
 
   const getUpdatedData = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/api/daily/today",
+      const res = await axios.get("https://habbit-tracker-5n2a.onrender.com/api/daily/today",
     {withCredential:true});
       
     setPhysical(res.data.data.quest.gym);

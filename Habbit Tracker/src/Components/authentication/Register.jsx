@@ -20,7 +20,7 @@ const handleChanges = (e) => {
 const submitHandler = async (e) => {
     e.preventDefault();
     try {
-    await axios.post("http://localhost:3000/api/auth/register",{
+    await axios.post("https://habbit-tracker-5n2a.onrender.com/api/auth/register",{
     username: formData.username,
     email: formData.email,
     password: formData.password
