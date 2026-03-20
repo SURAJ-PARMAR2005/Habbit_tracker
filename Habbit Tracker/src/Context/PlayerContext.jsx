@@ -44,7 +44,6 @@ export const PlayerProvider = ({children}) => {
       setIsRegistered(false);
 
     setXp(res.data.xp);
-    setXp(res.data.xp);
     setLevel(res.data.level);
     setStrength(res.data.stats.strength);
     setWisdom(res.data.stats.wisdom);
@@ -79,7 +78,7 @@ export const PlayerProvider = ({children}) => {
       setCurrStreak(currStreak);
       setLongestStreak(longStreak)
       setLevel(lvl);
-      setXp(res.data.user.xp);
+      // setXp(res.data.user.xp);
 
       setWisdom(wis);
       setStrength(stren);
@@ -104,7 +103,7 @@ export const PlayerProvider = ({children}) => {
     SetSpritual(res.data.data.quest.meditation);
     const x = res.data.data.taskCompleted;
     const Xp = res.data.data.totalXpEarnedToday;
-    setXp(Xp);
+    setXp(Xp);  
     setCompletTask(x);
     if(x>2) setFlag(true)
     const countExtraStudy = res.data.data.extra.extraStudy;

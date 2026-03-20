@@ -64,7 +64,7 @@ async function updateDailyData(req,res){
 
     let xpReward = 0;
     let StatUpdate = {};
-
+    
     if(type == "quest"){
         if(progress.quest[name]){
             return res.json({
@@ -91,9 +91,30 @@ async function updateDailyData(req,res){
         }
     }
 
+if(progress.taskCompleted === 3){
+
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const yesterdayStr = yesterday.toISOString().split("T")[0];
+
+    const prevDay = await dailyModel.findOne({
+        userId,
+        date: yesterdayStr
+    });
+
+    if(prevDay && prevDay.taskCompleted === 3){
+        user.currStreak += 1;
+    } else {
+        user.currStreak = 1;
+    }
+
+    user.longestStreak = Math.max(user.currStreak, user.longestStreak);
+}
+
     if(type == "extra"){
         progress.extra[name] += 1;
         xpReward = 50;
+        await user.save();
     }
     
 
