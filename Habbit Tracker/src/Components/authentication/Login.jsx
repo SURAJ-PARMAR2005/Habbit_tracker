@@ -19,10 +19,12 @@ const Login = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-        await axios.post("https://habbit-tracker-5n2a.onrender.com/api/auth/login",{
+        const res = await axios.post("https://habbit-tracker-5n2a.onrender.com/api/auth/login",{
           username:formData.username,
           password : formData.password,
         },{ withCredentials: true });
+
+        localStorage.setItem("token", res.data.token);
 
         // alert("Welcome Back Player!");
         setIsLogin(false);

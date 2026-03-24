@@ -32,6 +32,7 @@ const DashNav = () => {
 const handleLogOut = async () => {
   try {
   axios.post("https://habbit-tracker-5n2a.onrender.com/api/auth/logout");
+   localStorage.removeItem("token");
     setValidUser(false);
     setLogOut(false);
   } catch (error) {

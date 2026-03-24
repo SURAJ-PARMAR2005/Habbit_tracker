@@ -48,7 +48,7 @@ const DashQuest = () => {
   }
 
   return (
-    <div className="flex flex-col gap-6 text-white pl-6">
+    <div className="flex flex-col gap-6 text-white px-6">
       {/* heading */}
       <div className="flex gap-2">
         <i className="size-7">📋</i>
@@ -62,7 +62,7 @@ const DashQuest = () => {
         {/* cards three */}
         <div className={`physical-training flex flex-col border ${physical?"border-2 border-red-600 shadow-xl shadow-red-600":"border"} border-red-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start shadow-xl shadow-red-400/30 `}>
           {/* card1 */}
-          <div className="flex gap-[14vh] items-center justify-between p-3">
+          <div className="flex gap-4 items-center justify-between p-3">
             <div className="flex gap-2">
               <Dumbbell className="w-5 h-5 text-red-400" />
               <div>
@@ -107,7 +107,7 @@ const DashQuest = () => {
         </div>
         <div className={`Knowledge-acuisition flex flex-col border ${Knowledge?"border-2 border-green-600 shadow-2xl shadow-green-600":"border"} border-green-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start shadow-xl shadow-green-400/30 `}>
           {/* card1 */}
-          <div className="flex gap-[14vh] items-center justify-between p-3">
+          <div className="flex gap-4 items-center justify-between p-3">
             <div className="flex gap-2">
               <Book className="h-5 w-5 text-green-500" />
               <div>
@@ -174,7 +174,7 @@ const DashQuest = () => {
         </div>
         <div className={`spritual-acuisition shadow-xl ${Spiritual?"border-2 border-purple-600 shadow-2xl shadow-purple-600":"border"} shadow-purple-400/30 flex flex-col border border-purple-500/20  mb-3 p-6 gap-9 rounded-xl justify-items-start`}>
           {/* card1 */}
-          <div className="flex gap-[14vh] items-center justify-between p-3">
+          <div className="flex gap-4 items-center justify-between p-3">
             <div className="flex gap-2">
               {/* <Dumbbell className="w-5 h-5 text-red-400" />
                */}

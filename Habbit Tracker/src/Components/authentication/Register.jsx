@@ -20,11 +20,13 @@ const handleChanges = (e) => {
 const submitHandler = async (e) => {
     e.preventDefault();
     try {
-    await axios.post("https://habbit-tracker-5n2a.onrender.com/api/auth/register",{
+    const res = await axios.post("https://habbit-tracker-5n2a.onrender.com/api/auth/register",{
     username: formData.username,
     email: formData.email,
     password: formData.password
    },{ withCredentials: true });
+   
+   localStorage.setItem("token", res.data.token);
 //    alert("Player Awakened successfully!");  
    setIsRegistered(false);
    setValidUser(true);

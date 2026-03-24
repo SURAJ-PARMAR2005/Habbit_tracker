@@ -2,7 +2,9 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 async function authMiddleWare(req,res,next){
-    const token = req.cookies.token;
+    const authHeader = req.headers.authorization;
+    const token = (authHeader && authHeader.split(" ")[1]) || req.cookies.token;
+
     if(!token){
         return res.status(401).json({
             message: "Uauthorised"

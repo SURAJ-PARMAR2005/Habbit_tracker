@@ -67,7 +67,7 @@ export const PlayerProvider = ({children}) => {
   const getPermData = async () => {
     try {
       const res = await axios.get("https://habbit-tracker-5n2a.onrender.com/api/daily/today-perm",{
-        withCredential:true
+        withCredentials:true
       });
       const stren = res.data.user.stats.strength;
       const wis = res.data.user.stats.wisdom;
@@ -96,7 +96,7 @@ export const PlayerProvider = ({children}) => {
   const getUpdatedData = async () => {
     try {
       const res = await axios.get("https://habbit-tracker-5n2a.onrender.com/api/daily/today",
-    {withCredential:true});
+    {withCredentials:true});
       
     setPhysical(res.data.data.quest.gym);
     setknowledge(res.data.data.quest.study);

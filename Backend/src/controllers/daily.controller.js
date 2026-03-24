@@ -1,7 +1,8 @@
 const dailyModel  = require("../models/dailyprogress.model")
 const userModel = require("../models/user.model")
 const getTodayDate = () => {
-     return new Date().toISOString().split("T")[0];
+    
+    return new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
 }
 
 async function getDailyData(req,res) {
@@ -89,27 +90,29 @@ async function updateDailyData(req,res){
         StatUpdate.wisdom = 1;
         xpReward = 100;
         }
+
+        // --- STREAK LOGIC FIXED: ONLY CHECK WHEN EXACTLY TRANSITIONING FROM 2 TO 3 ---
+        if(progress.taskCompleted === 3){
+            // Calculate yesterday in IST
+            const now = new Date();
+            // We can get yesterday by subtracting 24 hours (roughly) but using UTC math + timezone is better, 
+            // or simply relying on the Date object
+            const yesterdayStr = new Date(now.getTime() - 24*60*60*1000).toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' });
+
+            const prevDay = await dailyModel.findOne({
+                userId,
+                date: yesterdayStr
+            });
+
+            if(prevDay && prevDay.taskCompleted === 3){
+                user.currStreak += 1;
+            } else {
+                user.currStreak = 1;
+            }
+
+            user.longestStreak = Math.max(user.currStreak, user.longestStreak);
+        }
     }
-
-if(progress.taskCompleted === 3){
-
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayStr = yesterday.toISOString().split("T")[0];
-
-    const prevDay = await dailyModel.findOne({
-        userId,
-        date: yesterdayStr
-    });
-
-    if(prevDay && prevDay.taskCompleted === 3){
-        user.currStreak += 1;
-    } else {
-        user.currStreak = 1;
-    }
-
-    user.longestStreak = Math.max(user.currStreak, user.longestStreak);
-}
 
     if(type == "extra"){
         progress.extra[name] += 1;
